@@ -1,5 +1,119 @@
-make[1]: Entering directory '/home/corse/tmessi/green-marl/src'
-g++ -g -O0 -I./inc -I. -W -Wno-unused-parameter -DDEFAULT_GM_TOP="\"/home/corse/tmessi/green-marl\"" ../obj/gm_grammer.tab.o ../obj/gm_lex.o ../obj/gm_parse_foreign_syntax.o ../obj/gm_reproduce.o ../obj/gm_dumptree.o ../obj/gm_misc.o ../obj/gm_main.o ../obj/gm_argopts.o ../obj/gm_copy.o ../obj/gm_code_generator.o ../obj/gm_read_setup.o ../obj/gm_error.o ../obj/gm_builtin.o ../obj/gm_node_info.o ../obj/gm_version_string.o ../obj/gm_traverse.o ../obj/gm_transform_helper.o ../obj/gm_add_symbol.o ../obj/gm_resolve_nc.o ../obj/gm_resolve_inf_size.o ../obj/gm_parallel_helper.o ../obj/gm_apply_compiler_stage.o ../obj/gm_new_sents_after_tc.o ../obj/gm_merge_sentblock.o ../obj/gm_reduce_error_check.o ../obj/gm_prepare_genname.o ../obj/gm_replace_sym_access.o ../obj/gm_flat_nested_sentblock.o ../obj/gm_frontend.o ../obj/gm_rw_analysis.o ../obj/gm_rw_analysis_check2.o ../obj/gm_handle_vardecl.o ../obj/gm_fixup_bound_symbol.o ../obj/gm_syntax_sugar.o ../obj/gm_fe_check_syntax.o ../obj/gm_typecheck.o ../obj/gm_coercion.o ../obj/gm_typecheck_oprules.o ../obj/gm_expand_group_assignment.o ../obj/gm_new_typecheck_step1.o ../obj/gm_new_typecheck_step2.o ../obj/gm_new_typecheck_step3.o ../obj/gm_new_typecheck_step4.o ../obj/gm_new_typecheck_step5.o ../obj/gm_syntax_sugar2.o ../obj/gm_flip_be.o ../obj/gm_ind_opt.o ../obj/gm_hoist_assign.o ../obj/gm_hoist_foreach.o ../obj/gm_merge_loops.o ../obj/gm_moveup_propdecl.o ../obj/gm_check_property_argument_usage.o ../obj/gm_reaching_def_analysis.o ../obj/gm_used_symbol_analysis.o ../obj/gm_def_symbol_analysis.o ../obj/gm_opt_nonconf_reduce.o ../obj/gm_opt_remove_unused_scalar.o ../obj/gm_opt_propagate_trivial_writes.o ../obj/gm_flip_edges.o ../obj/gm_cpp_opt.o ../obj/gm_cpp_opt_debug.o ../obj/gm_cpp_opt_select_par.o ../obj/gm_cpp_opt_defer.o ../obj/gm_cpp_opt_reduce_scalar.o ../obj/gm_cpp_opt_reduce_field.o ../obj/gm_cpp_opt_select_seq_implementation.o ../obj/gm_cpp_opt_select_map_implementation.o ../obj/gm_cpp_opt_check_feasible.o ../obj/gm_cpp_opt_save_bfs.o ../obj/gm_cpp_opt_common_nbr.o ../obj/gm_cpp_decide_schedule.o ../obj/gm_cpp_gen.o ../obj/gm_cpp_gen_bfs.o ../obj/gm_cpp_gen_foreach.o ../obj/gm_cpp_gen_buildup_language_voca.o ../obj/gm_cpp_gen_misc_check.o ../obj/gm_cpp_gen_sanitize_name.o ../obj/gm_cpp_gen_prop_decl.o ../obj/gm_cpp_gen_main.o ../obj/gm_cpp_gen_mark_parallel.o ../obj/gm_cpp_gen_check_bfs.o ../obj/gm_cpp_gen_regular.o ../obj/gm_cpp_gen_check_usermain.o ../obj/gm_cpp_gen_check_rev_edge.o ../obj/gm_cpplib_gen.o ../obj/gm_cpplib_opt.o ../obj/gm_gps_opt_remove_master_random_write.o ../obj/gm_gps_opt_remove_master_set_iteration.o ../obj/gm_gps_opt_check_reverse_edges.o ../obj/gm_gps_opt_find_nested_foreach_loops.o ../obj/gm_gps_opt_insert_temp_property.o ../obj/gm_gps_opt_simplify_expr1.o ../obj/gm_gps_opt_split_loops_for_flipping.o ../obj/gm_gps_opt_transform_bfs.o ../obj/gm_gps_opt_edge_iteration.o ../obj/gm_gps_opt_early_filter.o ../obj/gm_gps_create_stages.o ../obj/gm_gps_check_synthesizable.o ../obj/gm_gps_bb_split.o ../obj/gm_gps_bb_merge.o ../obj/gm_gps_bb_merge_again.o ../obj/gm_gps_bb_merge_intra_loop.o ../obj/gm_gps_bb_rw_analysis.o ../obj/gm_gps_beinfo.o ../obj/gm_gps_gen.o ../obj/gm_gps_opt.o ../obj/gm_gps_misc.o ../obj/gm_gps_gen_master.o ../obj/gm_gps_gen_vertex.o ../obj/gm_gps_new_analysis_sym_usage.o ../obj/gm_gps_sym_analyze_create_summary.o ../obj/gm_gps_find_congruent_message.o ../obj/gps_syminfo.o ../obj/gm_gps_bb_find_reachable.o ../obj/gm_gps_java.o ../obj/gm_gps_lib.o ../obj/gm_gps_lib_random_write.o ../obj/gm_gps_new_analysis_scope_rhs_lhs.o ../obj/gm_gps_new_analysis_scope_sent_var.o ../obj/gm_gps_new_check_pull_data.o ../obj/gm_gps_new_check_depth_two.o ../obj/gm_gps_new_check_edge_value.o ../obj/gm_gps_new_check_random_write.o ../obj/gm_gps_new_check_random_read.o ../obj/gm_gps_new_check_nested_loops.o ../obj/gm_gps_new_rewrite_rhs.o ../obj/gm_giraph_gen.o ../obj/gm_giraph_gen_master.o ../obj/gm_giraph_gen_vertex.o ../obj/gm_giraph_lib.o ../obj/gm_giraph_lib_random_write.o -o ../bin/gm_comp -lrt
-Makefile:196: recipe for target '../bin/gm_comp' failed
-make[1]: Leaving directory '/home/corse/tmessi/green-marl/src'
-Makefile:49: recipe for target 'compiler' failed
+Binary file ./.git/objects/ea/976e844ca5591441aab4aca73518a7e2b46dee matches
+Binary file ./.git/objects/da/cbe09d18b8fdc6de903461c68c035dc9444f5c matches
+Binary file ./.git/objects/2d/d2e95a429d0d30c808b1fb2bc1845c447b856a matches
+Binary file ./.git/objects/e0/e1dc9303fee0e348d3674ab50bcb5fb4f2b085 matches
+Binary file ./.git/objects/67/303ed44966eeddeb3c07a6ec641bd3c1dcc9e9 matches
+Binary file ./.git/objects/3a/b147037bfac2a7d9f1c8fec0660a9434dc0eba matches
+Binary file ./bin/gm_comp matches
+Binary file ./obj/gm_cpp_gen_foreach.o matches
+./src/backend_cpp/gm_cpp_gen_foreach.cc:        	sprintf(str_for_task, "for (int tsk = 0; tsk < %s.num_task(); tsk++)\n",graph_name);
+./src/backend_cpp/gm_cpp_gen_foreach.cc:        	sprintf(str_buf, "%sfor (%s %s = %s.task_tab[tsk].start; %s < %s.task_tab[tsk].end; %s ++) ",str_for_task, get_type_string(iter->getTypeSummary()), it_name, graph_name, it_name, graph_name, it_name);
+Binary file ./apps/data/com-lj_prepared_7-2_gm.bin matches
+Binary file ./apps/output_cpp/bin/kosaraju matches
+Binary file ./apps/output_cpp/bin/communities matches
+Binary file ./apps/output_cpp/bin/bc_random matches
+Binary file ./apps/output_cpp/bin/pagerank matches
+Binary file ./apps/output_cpp/bin/potential_friends matches
+Binary file ./apps/output_cpp/bin/random_degree_node_sampling matches
+Binary file ./apps/output_cpp/bin/triangle_counting matches
+Binary file ./apps/output_cpp/bin/sssp_path matches
+Binary file ./apps/output_cpp/bin/avg_teen_cnt matches
+Binary file ./apps/output_cpp/bin/bc matches
+Binary file ./apps/output_cpp/bin/bidir_dijkstra matches
+Binary file ./apps/output_cpp/bin/sssp_dijkstra matches
+Binary file ./apps/output_cpp/bin/bc_adj matches
+Binary file ./apps/output_cpp/bin/hop_dist matches
+Binary file ./apps/output_cpp/bin/random_node_sampling matches
+Binary file ./apps/output_cpp/bin/sssp matches
+Binary file ./apps/output_cpp/bin/sssp_path_adj matches
+Binary file ./apps/output_cpp/bin/v_cover matches
+Binary file ./apps/output_cpp/bin/katz_v2 matches
+Binary file ./apps/output_cpp/bin/conduct matches
+./apps/output_cpp/generated/bc_random.cc:    for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/bc_random.cc:    for (node_t t0 = G.task_tab[tsk].start; t0 < G.task_tab[tsk].end; t0 ++) 
+./apps/output_cpp/generated/bc_random.cc:        for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/bc_random.cc:        for (node_t t1 = G.task_tab[tsk].start; t1 < G.task_tab[tsk].end; t1 ++) 
+./apps/output_cpp/generated/conduct.cc:        for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/conduct.cc:        for (node_t u = G.task_tab[tsk].start; u < G.task_tab[tsk].end; u ++) 
+./apps/output_cpp/generated/conduct.cc:        for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/conduct.cc:        for (node_t u0 = G.task_tab[tsk].start; u0 < G.task_tab[tsk].end; u0 ++) 
+./apps/output_cpp/generated/conduct.cc:        for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/conduct.cc:        for (node_t u1 = G.task_tab[tsk].start; u1 < G.task_tab[tsk].end; u1 ++) 
+./apps/output_cpp/generated/sssp_path.cc:    for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/sssp_path.cc:    for (node_t t0 = G.task_tab[tsk].start; t0 < G.task_tab[tsk].end; t0 ++) 
+./apps/output_cpp/generated/sssp_path.cc:        for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/sssp_path.cc:        for (node_t n = G.task_tab[tsk].start; n < G.task_tab[tsk].end; n ++) 
+./apps/output_cpp/generated/sssp_path.cc:            for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/sssp_path.cc:            for (node_t t5 = G.task_tab[tsk].start; t5 < G.task_tab[tsk].end; t5 ++) 
+./apps/output_cpp/generated/sssp_dijkstra.cc:    for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/sssp_dijkstra.cc:    for (node_t t0 = G.task_tab[tsk].start; t0 < G.task_tab[tsk].end; t0 ++) 
+./apps/output_cpp/generated/pagerank.cc:    for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/pagerank.cc:    for (node_t t0 = G.task_tab[tsk].start; t0 < G.task_tab[tsk].end; t0 ++) 
+./apps/output_cpp/generated/pagerank.cc:            for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/pagerank.cc:            for (node_t t = G.task_tab[tsk].start; t < G.task_tab[tsk].end; t ++) 
+./apps/output_cpp/generated/pagerank.cc:        for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/pagerank.cc:        for (node_t i3 = G.task_tab[tsk].start; i3 < G.task_tab[tsk].end; i3 ++) 
+./apps/output_cpp/generated/potential_friends.cc:    for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/potential_friends.cc:    for (node_t v = G.task_tab[tsk].start; v < G.task_tab[tsk].end; v ++) 
+./apps/output_cpp/generated/random_degree_node_sampling.cc:        for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/random_degree_node_sampling.cc:        for (node_t n = G.task_tab[tsk].start; n < G.task_tab[tsk].end; n ++) 
+./apps/output_cpp/generated/random_degree_node_sampling.cc:    for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/random_degree_node_sampling.cc:    for (node_t t0 = G.task_tab[tsk].start; t0 < G.task_tab[tsk].end; t0 ++) 
+./apps/output_cpp/generated/triangle_counting.cc:        for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/triangle_counting.cc:        for (node_t v = G.task_tab[tsk].start; v < G.task_tab[tsk].end; v ++) 
+./apps/output_cpp/generated/preferential_attachment.cc:    for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/preferential_attachment.cc:    for (node_t n1 = G.task_tab[tsk].start; n1 < G.task_tab[tsk].end; n1 ++) 
+./apps/output_cpp/generated/preferential_attachment.cc:        for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/preferential_attachment.cc:        for (node_t n2 = G.task_tab[tsk].start; n2 < G.task_tab[tsk].end; n2 ++) 
+./apps/output_cpp/generated/avg_teen_cnt.cc:        for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/avg_teen_cnt.cc:        for (node_t n = G.task_tab[tsk].start; n < G.task_tab[tsk].end; n ++) 
+./apps/output_cpp/generated/sssp_path_adj.cc:    for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/sssp_path_adj.cc:    for (node_t t0 = G.task_tab[tsk].start; t0 < G.task_tab[tsk].end; t0 ++) 
+./apps/output_cpp/generated/sssp_path_adj.cc:        for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/sssp_path_adj.cc:        for (node_t n = G.task_tab[tsk].start; n < G.task_tab[tsk].end; n ++) 
+./apps/output_cpp/generated/sssp_path_adj.cc:            for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/sssp_path_adj.cc:            for (node_t t6 = G.task_tab[tsk].start; t6 < G.task_tab[tsk].end; t6 ++) 
+./apps/output_cpp/generated/bidir_dijkstra.cc:    for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/bidir_dijkstra.cc:    for (node_t t0 = G.task_tab[tsk].start; t0 < G.task_tab[tsk].end; t0 ++) 
+./apps/output_cpp/generated/bidir_dijkstra.cc:    for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/bidir_dijkstra.cc:    for (node_t t5 = G.task_tab[tsk].start; t5 < G.task_tab[tsk].end; t5 ++) 
+./apps/output_cpp/generated/v_cover.cc:    for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/v_cover.cc:    for (node_t t0 = G.task_tab[tsk].start; t0 < G.task_tab[tsk].end; t0 ++) 
+./apps/output_cpp/generated/v_cover.cc:            for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/v_cover.cc:            for (node_t s = G.task_tab[tsk].start; s < G.task_tab[tsk].end; s ++) 
+./apps/output_cpp/generated/v_cover.cc:        for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/v_cover.cc:        for (node_t t3 = G.task_tab[tsk].start; t3 < G.task_tab[tsk].end; t3 ++) 
+./apps/output_cpp/generated/sssp.cc:    for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/sssp.cc:    for (node_t t0 = G.task_tab[tsk].start; t0 < G.task_tab[tsk].end; t0 ++) 
+./apps/output_cpp/generated/sssp.cc:        for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/sssp.cc:        for (node_t n = G.task_tab[tsk].start; n < G.task_tab[tsk].end; n ++) 
+./apps/output_cpp/generated/sssp.cc:            for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/sssp.cc:            for (node_t t4 = G.task_tab[tsk].start; t4 < G.task_tab[tsk].end; t4 ++) 
+./apps/output_cpp/generated/communities.cc:    for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/communities.cc:    for (node_t x = G.task_tab[tsk].start; x < G.task_tab[tsk].end; x ++) 
+./apps/output_cpp/generated/communities.cc:        for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/communities.cc:        for (node_t x0 = G.task_tab[tsk].start; x0 < G.task_tab[tsk].end; x0 ++) 
+./apps/output_cpp/generated/kosaraju.cc:    for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/kosaraju.cc:    for (node_t t0 = G.task_tab[tsk].start; t0 < G.task_tab[tsk].end; t0 ++) 
+./apps/output_cpp/generated/kosaraju.cc:    for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/kosaraju.cc:    for (node_t t = G.task_tab[tsk].start; t < G.task_tab[tsk].end; t ++) 
+./apps/output_cpp/generated/bc_adj.cc:    for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/bc_adj.cc:    for (node_t t0 = G.task_tab[tsk].start; t0 < G.task_tab[tsk].end; t0 ++) 
+./apps/output_cpp/generated/bc_adj.cc:    for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/bc_adj.cc:    for (node_t s = G.task_tab[tsk].start; s < G.task_tab[tsk].end; s ++) 
+./apps/output_cpp/generated/bc_adj.cc:        for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/bc_adj.cc:        for (node_t t1 = G.task_tab[tsk].start; t1 < G.task_tab[tsk].end; t1 ++) 
+./apps/output_cpp/generated/katz_v2.cc:    for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/katz_v2.cc:    for (node_t n = G.task_tab[tsk].start; n < G.task_tab[tsk].end; n ++) 
+./apps/output_cpp/generated/hop_dist.cc:    for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/hop_dist.cc:    for (node_t t0 = G.task_tab[tsk].start; t0 < G.task_tab[tsk].end; t0 ++) 
+./apps/output_cpp/generated/hop_dist.cc:        for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/hop_dist.cc:        for (node_t n = G.task_tab[tsk].start; n < G.task_tab[tsk].end; n ++) 
+./apps/output_cpp/generated/hop_dist.cc:            for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/hop_dist.cc:            for (node_t t4 = G.task_tab[tsk].start; t4 < G.task_tab[tsk].end; t4 ++) 
+./apps/output_cpp/generated/bc.cc:    for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/bc.cc:    for (node_t t0 = G.task_tab[tsk].start; t0 < G.task_tab[tsk].end; t0 ++) 
+./apps/output_cpp/generated/bc.cc:        for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/bc.cc:        for (node_t t1 = G.task_tab[tsk].start; t1 < G.task_tab[tsk].end; t1 ++) 
+./apps/output_cpp/generated/random_node_sampling.cc:    for (int tsk = 0; tsk < G.num_task(); tsk++)
+./apps/output_cpp/generated/random_node_sampling.cc:    for (node_t v = G.task_tab[tsk].start; v < G.task_tab[tsk].end; v ++) 

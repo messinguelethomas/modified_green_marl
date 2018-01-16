@@ -1,0 +1,1000 @@
+ 1002  cat perf_pagerank.txt 
+ 1003  cat commande.txt 
+ 1004  perf stat -B -e cache-references,cache-misses,L1-dcache-load-misses,L1-dcache-store-misses,L1-dcache-prefetch-misses,LLC-loads,LLC-stores,dTLB-load-misses,dTLB-store-misses,cycles -o perf_pagerank.txt --append taskset -c 0-1 ./pagerank_pthreads data_com-lj_/com-lj_prepared.txt $n 0.00000000001 0.85 $c $scd 1 0
+ 1005  perf stat -B -e cache-references,cache-misses,L1-dcache-load-misses,L1-dcache-store-misses,L1-dcache-prefetch-misses,LLC-loads,LLC-stores,dTLB-load-misses,dTLB-store-misses,cycles -o perf_pagerank.txt --append taskset -c 0-1 ./pagerank_pthreads data_com-lj_/com-lj_prepared.txt 3997962 0.00000000001 0.85 2 1 1 0
+ 1006  perf stat -B -e cache-references,cache-misses,L1-dcache-load-misses,L1-dcache-store-misses,L1-dcache-prefetch-misses,LLC-loads,LLC-stores,dTLB-load-misses,dTLB-store-misses,cycles -o perf_pagerank.txt --append taskset -c 0-1 ./pagerank_pthreads data_com-lj_/com-lj_prepared.txt 3997962 0.00000000001 0.85 2 1 
+ 1007  perf stat -B -e cache-references,cache-misses,L1-dcache-load-misses,L1-dcache-store-misses,L1-dcache-prefetch-misses,LLC-loads,LLC-stores,dTLB-load-misses,dTLB-store-misses,cycles -o perf_pagerank.txt --append taskset -c 0-1 ./pagerank_pthreads data_com-lj_/com-lj_prepared.txt 3997962 0.00000000001 0.85 2 7 1 0
+ 1008  perf stat -B -e cache-references,cache-misses,L1-dcache-load-misses,L1-dcache-store-misses,L1-dcache-prefetch-misses,LLC-loads,LLC-stores,dTLB-load-misses,dTLB-store-misses,cycles -o perf_pagerank.txt --append taskset -c 0-1 ./pagerank_pthreads data_com-lj_/com-lj_prepared.txt 3997962 0.00000000001 0.85 2 6 1 0
+ 1009  perf stat -B -e cache-references,cache-misses,L1-dcache-load-misses,L1-dcache-store-misses,L1-dcache-prefetch-misses,LLC-loads,LLC-stores,dTLB-load-misses,dTLB-store-misses,cycles -o perf_pagerank.txt --append taskset -c 0-1 ./pagerank_pthreads data_com-lj_/com-lj_prepared.txt 3997962 0.00000000001 0.85 2 1 1 0
+ 1010  perf stat -B -e cache-references,cache-misses,L1-dcache-load-misses,L1-dcache-store-misses,L1-dcache-prefetch-misses,LLC-loads,LLC-stores,dTLB-load-misses,dTLB-store-misses,cycles -o perf_pagerank.txt --append taskset -c 0-1 ./pagerank_pthreads data_com-lj_/com-lj_prepared.txt 3997962 0.00000000001 0.85 1 1 1 0
+ 1011  perf stat -B -e cache-references,cache-misses,L1-dcache-load-misses,L1-dcache-store-misses,L1-dcache-prefetch-misses,LLC-loads,LLC-stores,dTLB-load-misses,dTLB-store-misses,cycles -o perf_pagerank.txt --append taskset -c 0-1 ./pagerank_pthreads data_com-lj_/com-lj_prepared_5.txt 3997962 0.00000000001 0.85 1 1 1 0
+ 1012  perf stat -B -e cache-references,cache-misses,L1-dcache-load-misses,L1-dcache-store-misses,L1-dcache-prefetch-misses,LLC-loads,LLC-stores,dTLB-load-misses,dTLB-store-misses,cycles -o perf_pagerank.txt --append taskset -c 0-1 ./pagerank_pthreads data_com-lj_/com-lj_prepared_6.txt 3997962 0.00000000001 0.85 1 1 1 0
+ 1013  perf stat -B -e cache-references,cache-misses,L1-dcache-load-misses,L1-dcache-store-misses,L1-dcache-prefetch-misses,LLC-loads,LLC-stores,dTLB-load-misses,dTLB-store-misses,cycles -o perf_pagerank.txt --append taskset -c 0-1 ./pagerank_pthreads data_com-lj_/com-lj_prepared_7-2.txt 3997962 0.00000000001 0.85 1 1 1 0
+ 1014  perf stat -B -e cache-references,cache-misses,L1-dcache-load-misses,L1-dcache-store-misses,L1-dcache-prefetch-misses,LLC-loads,LLC-stores,dTLB-load-misses,dTLB-store-misses,cycles -o perf_pagerank.txt --append taskset -c 0-1 ./pagerank_pthreads data_com-lj_/com-lj_prepared_Gorder.txt 3997962 0.00000000001 0.85 1 1 1 0
+ 1015  perf stat -B -e cache-references,cache-misses,L1-dcache-load-misses,L1-dcache-store-misses,L1-dcache-prefetch-misses,LLC-loads,LLC-stores,dTLB-load-misses,dTLB-store-misses,cycles -o perf_pagerank.txt --append taskset -c 0-1 ./pagerank_pthreads data_com-lj_/com-lj_Gorder_bloc_5.txt 3997962 0.00000000001 0.85 1 1 1 0
+ 1016  perf stat -B -e cache-references,cache-misses,L1-dcache-load-misses,L1-dcache-store-misses,L1-dcache-prefetch-misses,LLC-loads,LLC-stores,dTLB-load-misses,dTLB-store-misses,cycles -o perf_pagerank.txt --append taskset -c 0-0 ./pagerank_pthreads data_com-lj_/com-lj_Gorder_bloc_5.txt 3997962 0.00000000001 0.85 1 1 1 0
+ 1017  perf stat -B -e cache-references,cache-misses,L1-dcache-load-misses,L1-dcache-store-misses,L1-dcache-prefetch-misses,LLC-loads,LLC-stores,dTLB-load-misses,dTLB-store-misses,cycles -o perf_pagerank.txt --append taskset -c 0-0 ./pagerank_pthreads data_com-lj_/com-lj_prepared_Gorder.txt 3997962 0.00000000001 0.85 1 1 1 0
+ 1018  perf stat -B -e cache-references,cache-misses,L1-dcache-load-misses,L1-dcache-store-misses,L1-dcache-prefetch-misses,LLC-loads,LLC-stores,dTLB-load-misses,dTLB-store-misses,cycles -o perf_pagerank.txt --append taskset -c 0-0 ./pagerank_pthreads data_com-lj_/com-lj_prepared_7-2.txt 3997962 0.00000000001 0.85 1 1 1 0
+ 1019  perf stat -B -e cache-references,cache-misses,L1-dcache-load-misses,L1-dcache-store-misses,L1-dcache-prefetch-misses,LLC-loads,LLC-stores,dTLB-load-misses,dTLB-store-misses,cycles -o perf_pagerank.txt --append taskset -c 0-0 ./pagerank_pthreads data_com-lj_/com-lj_prepared_6.txt 3997962 0.00000000001 0.85 1 1 1 0
+ 1020  perf stat -B -e cache-references,cache-misses,L1-dcache-load-misses,L1-dcache-store-misses,L1-dcache-prefetch-misses,LLC-loads,LLC-stores,dTLB-load-misses,dTLB-store-misses,cycles -o perf_pagerank.txt --append taskset -c 0-0 ./pagerank_pthreads data_com-lj_/com-lj_prepared_5.txt 3997962 0.00000000001 0.85 1 1 1 0
+ 1021  perf stat -B -e cache-references,cache-misses,L1-dcache-load-misses,L1-dcache-store-misses,L1-dcache-prefetch-misses,LLC-loads,LLC-stores,dTLB-load-misses,dTLB-store-misses,cycles -o perf_pagerank.txt --append taskset -c 0-0 ./pagerank_pthreads data_com-lj_/com-lj_prepared.txt 3997962 0.00000000001 0.85 1 1 1 0
+ 1022  perf stat -B -e cache-references,cache-misses,L1-dcache-load-misses,L1-dcache-store-misses,L1-dcache-prefetch-misses,LLC-loads,LLC-stores,dTLB-load-misses,dTLB-store-misses,cycles -o perf_pagerank.txt --append taskset -c 0-1 ./pagerank_pthreads data_com-lj_/com-lj_prepared.txt 3997962 0.00000000001 0.85 2 1 1 0
+ 1023  htop
+ 1024  cd doctorat/load_balancing/pagerank_load_balancing/
+ 1025  vi pagerank_execution_time.txt 
+ 1026  htop
+ 1027  ls data_com-lj
+ 1028  ls data_com-lj_/
+ 1029  ls tocopy
+ 1030  wc -l tocopy_/com-lj_prepared_Gorder.txt 
+ 1031  mv tocopy_/com-lj_prepared_Gorder.txt data_com-lj_/
+ 1032  locate com-lj_Gorder_bloc_5.txt
+ 1033  mv data/com-lj_Gorder_bloc_5.txt data_com-lj_/
+ 1034  wc data_com-lj_/com-lj_Gorder_bloc_5.txt
+ 1035  wc -l data_com-lj_/com-lj_Gorder_bloc_5.txt
+ 1036  vi pagerank_execution_time.txt 
+ 1037  cat commande.txt 
+ 1038  ./launch_pagerank.sh 
+ 1039  ls
+ 1040  ls data_com-lj
+ 1041  mv perf_pagerank.txt data_com-lj
+ 1042  mv pagerank_execution_time.txt data_com-lj
+ 1043  ls data
+ 1044  ls data_com-lj/com-lj_prepared.txt data_com-lj_/
+ 1045  mv data_com-lj/com-lj_prepared.txt data_com-lj_/
+ 1046  ls data_com-lj/com-lj_prepared.txt data_com-lj_/
+ 1047  ls data_com-lj/com-lj_prepared_?.txt data_com-lj_/
+ 1048  mv data_com-lj/com-lj_prepared_?.txt data_com-lj_/
+ 1049  ls data_com-lj/com-lj_prepared_?-?.txt data_com-lj_/
+ 1050  mv data_com-lj/com-lj_prepared_?-?.txt data_com-lj_/
+ 1051  ls data_com-lj/com-lj_prepared_?-?.txt data_com-lj_/
+ 1052  scp  data_com-lj/*  tmessi@ligone.imag.fr:/home/corse/tmessi
+ 1053  ls data_com-lj
+ 1054  mv data_com-lj/perf_pagerank.txt ./
+ 1055  scp  data_com-lj/*  tmessi@ligone.imag.fr:/home/corse/tmessi
+ 1056  mv perf_pagerank.txt data_com-lj/
+ 1057  scp  data_com-lj/perf_pagerank.txt   tmessi@ligone.imag.fr:/home/corse/tmessi
+ 1058  htop
+ 1059  module avail
+ 1060  ls
+ 1061  cd galois/
+ 1062  ls
+ 1063  cd Galois-2.2.1/
+ 1064  cd build/release/
+ 1065  ls
+ 1066  make
+ 1067  scp  ../../../Galois-2.2.1.tar.gz messi@idchire.imag.fr:/home/messi
+ 1068  ls
+ 1069  cd doctorat/
+ 1070  ls
+ 1071  cd ..
+ 1072  ls
+ 1073  cd doctorat/
+ 1074  cd ../modified_green_marl/
+ 1075  git push 
+ 1076  ls
+ 1077  make compiler 
+ 1078  ls bin/gm_comp 
+ 1079  ./bin/gm_comp 
+ 1080  ./bin/gm_comp -h
+ 1081  ls
+ 1082  cp etc/vim/syntax/greenmarl.vim ~/.vim/syntax/
+ 1083  mkdir /home/corse/tmessi/.vim/syntax/
+ 1084  cp etc/vim/syntax/greenmarl.vim ~/.vim/syntax/
+ 1085  cp etc/vim/ftdetect/greenmarl.vim ~/.vim/ftdetect/
+ 1086  mkdir ~/.vim/ftdetect/
+ 1087  cp etc/vim/ftdetect/greenmarl.vim ~/.vim/ftdetect/
+ 1088  vi setup.mk.in 
+ 1089  htop
+ 1090  cd apps/
+ 1091  ls
+ 1092  cat Programs.mk 
+ 1093  htop
+ 1094  cat Programs.mk 
+ 1095  make gen 
+ 1096  make clean
+ 1097  make gen 
+ 1098  ls output_cpp/generated/
+ 1099  ls output_cpp/gm_graph/src/
+ 1100  ls output_cpp/gm_graph/inc/
+ 1101  cat output_cpp/common.mk 
+ 1102  vi output_cpp/common.mk 
+ 1103  make lib 
+ 1104  ls output_cpp/gm_graph/lib/
+ 1105  vi output_cpp/gm_graph/lib/libgmgraph.a 
+ 1106  make bin
+ 1107  cd ..
+ 1108  make apps
+ 1109  cd apps/output_cpp/
+ 1110  bin/graph_gen 1000000 8000000 data/u1m_8m.bin 0
+ 1111  bin/conduct data/u1m_8m.bin 1
+ 1112  bin/conduct data/u1m_8m.bin 8
+ 1113  bin/pagerank data/u1m_8m.bin 8
+ 1114  bin/pagerank data/u1m_8m.bin 9
+ 1115  bin/bc data/u1m_8m.bin 9
+ 1116  bin/bc data/u1m_8m.bin 1
+ 1117  bin/kosaraju data/u1m_8m.bin 1
+ 1118  bin/kosaraju data/u1m_8m.bin 8
+ 1119  bin/kosaraju data/u1m_8m.bin 32
+ 1120  bin/bc data/u1m_8m.bin 1
+ 1121  bin/bc_adj data/u1m_8m.bin 1
+ 1122  bin/bc
+ 1123  bin/bc_random data/u1m_8m.bin 1
+ 1124  ls
+ 1125  cd generated/
+ 1126  ls
+ 1127  vi pagerank.cc 
+ 1128  cd ..
+ 1129  ls
+ 1130  ls src/backend_cpp/
+ 1131  vi src/backend_cpp/gm_cpp_gen_main.cc 
+ 1132  ls
+ 1133  cat temp.txt 
+ 1134  ls
+ 1135  vi apps/output_cpp/common.mk 
+ 1136  cd apps/
+ 1137  make lib
+ 1138  make clean_all 
+ 1139  make
+ 1140  bin/bc data/u1m_8m.bin 1
+ 1141  ls
+ 1142  cd ..
+ 1143  bin/bc data/u1m_8m.bin 1
+ 1144  ls
+ 1145  ls bin/
+ 1146  cd apps/output_cpp/
+ 1147  bin/bc data/u1m_8m.bin 1
+ 1148  cd modified_green_marl/
+ 1149  vi README.md 
+ 1150  htop
+ 1151  vi README.md 
+ 1152  htop
+ 1153  vi README.md 
+ 1154  htop
+ 1155  vi README.md 
+ 1156  cd modified_green_marl/
+ 1157  htop
+ 1158  ls
+ 1159  vi README.md 
+ 1160  ls
+ 1161  cd modified_green_marl/
+ 1162  htop
+ 1163  ls
+ 1164  cd apps/output_cpp/src/
+ 1165  ls
+ 1166  cd ..
+ 1167  cd gm_graph/inc
+ 1168  ls
+ 1169  vi gm_graph_typedef.h 
+ 1170  vi gm_graph.h 
+ 1171  htop
+ 1172  ping .fr
+ 1173  htop
+ 1174  cd ..
+ 1175  make bin 
+ 1176  cd output_cpp/gm_graph/inc
+ 1177  vi gm_graph.h 
+ 1178  screen
+ 1179  cd modified_green_marl/
+ 1180  make
+ 1181  make bin 
+ 1182  cd apps/
+ 1183  make
+ 1184  make bin 
+ 1185  make bin
+ 1186  make
+ 1187  cd ..
+ 1188  make
+ 1189  make clean
+ 1190  make
+ 1191  make lib
+ 1192  make apps
+ 1193  make
+ 1194  make clean
+ 1195  make
+ 1196  scp  ../../../Galois-2.2.1.tar.gz messi@idchire.imag.fr:/home/messi
+ 1197  scp  tmessi@ligone.imag.fr:/home/corse/tmessi/katz_v2_main.cc ./
+ 1198  ls
+ 1199  make
+ 1200  make clean
+ 1201  make
+ 1202  htop
+ 1203  vi README.md 
+ 1204  scp  tmessi@ligone.imag.fr:/home/corse/tmessi/katz_v2.gm ./
+ 1205  mv katz_v2.gm apps/src/
+ 1206  make apps
+ 1207  cd apps/
+ 1208  make apps
+ 1209  make
+ 1210  make gen
+ 1211  vi Programs.mk 
+ 1212  make gen 
+ 1213  vi output_cpp/src/
+ 1214  mv ../katz_v2_main.cc output_cpp/src/
+ 1215  vi output_cpp/src/katz_v2_main.cc 
+ 1216  make bin
+ 1217  screen
+ 1218  cd modified_green_marl/
+ 1219  cd apps/
+ 1220  make
+ 1221  screen
+ 1222  make
+ 1223  ./output_cpp/bin/katz_v2 
+ 1224  cp ../../doctorat/load_balancing/data/karate.gml ./
+ 1225  ls
+ 1226  mkdir data
+ 1227  mv karate.gml data/
+ 1228  ./output_cpp/bin/katz_v2 data/karate.gml 
+ 1229  ./output_cpp/bin/katz_v2 data/karate.gml 7 2
+ 1230  make
+ 1231  make bin
+ 1232  make
+ 1233  ./output_cpp/bin/katz_v2 data/karate.gml 7 2
+ 1234  ./output_cpp/bin/katz_v2 data/karate.gml 7 2 > tmp.txt
+ 1235  vi tmp.txt 
+ 1236  vi ../../doctorat/load_balancing/pagerank_load_balancing/pagerank_pthreads.c 
+ 1237  cp ../../doctorat/load_balancing/pagerank_load_balancing/pagerank_pthreads.c ./
+ 1238  ls
+ 1239  make
+ 1240  make clean
+ 1241  make
+ 1242  ./output_cpp/bin/katz_v2 
+ 1243  history
+ 1244  cp ../../doctorat/load_balancing/pagerank_load_balancing/data/karate.txt data/
+ 1245  ls
+ 1246  output_cpp/bin/katz_v2 
+ 1247  output_cpp/bin/katz_v2 data/karate.txt 34
+ 1248  output_cpp/bin/katz_v2 data/karate.txt 34 7
+ 1249  make
+ 1250  output_cpp/bin/katz_v2 data/karate.txt 34 7 1
+ 1251  output_cpp/bin/katz_v2 data/karate.txt 34 7 2
+ 1252  output_cpp/bin/katz_v2 data/karate.txt 34 7 1
+ 1253  output_cpp/bin/katz_v2 data/karate.txt 34 7 1 > tmp2.txt 
+ 1254  diff tmp.txt tmp2.txt 
+ 1255  vi tmp.txt 
+ 1256  exit
+ 1257  screen -r 37455
+ 1258  screen -r 
+ 1259  screen ls
+ 1260  screen -ls
+ 1261  screen -r 37455
+ 1262  screen -ls
+ 1263  screen -r -d 5
+ 1264  cd modified_green_marl/
+ 1265  cd apps/output_cpp/generated/
+ 1266  vi pagerank.cc 
+ 1267  cd ..
+ 1268  cd src/
+ 1269  vi pagerank_main.cc 
+ 1270  htop
+ 1271  screen -r 
+ 1272  htop
+ 1273  ls
+ 1274  screen -ls
+ 1275  screen -r 3740
+ 1276  screen -ls
+ 1277  screen -r -d 3740
+ 1278  screen -r 37455
+ 1279  screen -r 37455 -d
+ 1280  screen -r 3740 -d
+ 1281  cd modified_green_marl/apps/
+ 1282  vi output_cpp/src/pagerank_main.cc 
+ 1283  rm output_cpp/src/.pagerank_main.cc.swp 
+ 1284  vi output_cpp/src/pagerank_main.cc 
+ 1285  vi output_cpp/src/common_main.h 
+ 1286  vi output_cpp/generated/pagerank.cc 
+ 1287  vi output_cpp/src/pagerank_main.cc 
+ 1288  vi output_cpp/src/common_main.h 
+ 1289  vi output_cpp/src/pagerank_main.cc 
+ 1290  make
+ 1291  cd output_cpp/src/
+ 1292  ls
+ 1293  vi bc_main.cc 
+ 1294  ls
+ 1295  vi katz_v2_main.cc 
+ 1296  cd ../..
+ 1297  make
+ 1298  vi output_cpp/src/katz_v2_main.cc 
+ 1299  vi output_cpp/src/v_cover_main.cc 
+ 1300  vi output_cpp/src/v_cover_main.cc 
+ 1301  vi ../README.md 
+ 1302  ls ..
+ 1303  vi ../doc/tutorial.md 
+ 1304  vi output_cpp/src/v_cover_main.cc 
+ 1305  vi output_cpp/src/katz_v2_main.cc 
+ 1306  vi tmp2.txt 
+ 1307  vi output_cpp/src/pagerank_main.cc 
+ 1308  ls output_cpp/src/
+ 1309  vi output_cpp/src/common_main.h 
+ 1310  htop
+ 1311  vi output_cpp/src/common_main.h 
+ 1312  vi src/pagerank.gm 
+ 1313  vi output_cpp/src/common_main.h 
+ 1314  make
+ 1315  make clean
+ 1316  make
+ 1317  vi output_cpp/src/common_main.h 
+ 1318  make
+ 1319  ./output_cpp/bin/pagerank 
+ 1320  ./output_cpp/bin/pagerank data/karate.txt 34 2
+ 1321  make
+ 1322  ./output_cpp/bin/pagerank data/karate.txt 34 2
+ 1323  make
+ 1324  ./output_cpp/bin/pagerank data/karate.txt 34 2
+ 1325  make
+ 1326  ./output_cpp/bin/pagerank data/karate.txt 34 2
+ 1327  make
+ 1328  ./output_cpp/bin/pagerank data/karate.txt 34 2
+ 1329  screen -r -d 3740
+ 1330  screen -ls
+ 1331  screen -r -d 3745
+ 1332  screen -r
+ 1333  htop
+ 1334  cd modified_green_marl/
+ 1335  git push
+ 1336  git add
+ 1337  git add .
+ 1338  git push
+ 1339  ls
+ 1340  cd apps/output_cpp/src/
+ 1341  ls
+ 1342  ls ..
+ 1343  vi pagerank_main.cc 
+ 1344  rm .pagerank_main.cc.swp 
+ 1345  vi pagerank_main.cc 
+ 1346  cp pagerank_main.cc _pagerank_main.cc 
+ 1347  vi pagerank_main.cc 
+ 1348  cd modified_green_marl/apps/
+ 1349  vi output_cpp/src/pagerank_main.cc 
+ 1350  rm output_cpp/src/.pagerank_main.cc.swp 
+ 1351  vi output_cpp/src/pagerank_main.cc 
+ 1352  vi output_cpp/src/katz_v2_main.cc 
+ 1353  vi output_cpp/src/pagerank_main.cc 
+ 1354  screen -ls
+ 1355  screen -r
+ 1356  cd modified_green_marl/
+ 1357  cd apps/
+ 1358  ./output_cpp/bin/pagerank 
+ 1359  ./output_cpp/bin/pagerank data/karate.txt 34 2
+ 1360  make
+ 1361  ./output_cpp/bin/pagerank data/karate.txt 34 2
+ 1362  make
+ 1363  ./output_cpp/bin/pagerank data/karate.txt 34 2
+ 1364  vi output_cpp/src/pagerank_main.cc 
+ 1365  make
+ 1366  ./output_cpp/bin/pagerank data/karate.txt 34 2
+ 1367  make
+ 1368  ./output_cpp/bin/pagerank data/karate.txt 34 2
+ 1369  make
+ 1370  ./output_cpp/bin/pagerank data/karate.txt 34 2
+ 1371  make
+ 1372  ./output_cpp/bin/pagerank data/karate.txt 34 2
+ 1373  vi output_cpp/src/pagerank_main.cc 
+ 1374  make
+ 1375  ./output_cpp/bin/pagerank data/karate.txt 34 2
+ 1376  vi output_cpp/src/pagerank_main.cc 
+ 1377  make
+ 1378  vi output_cpp/src/pagerank_main.cc 
+ 1379  ./output_cpp/bin/pagerank data/karate.txt 34 2
+ 1380  grep -r 'num_nodes()' output_cpp/gm_graph/src/
+ 1381  vi output_cpp/gm_graph/src/gm_graph_binary_loader.cc
+ 1382  grep -r 'numNodes' output_cpp/gm_graph/src/
+ 1383  grep -r '_numNodes' output_cpp/gm_graph/src/
+ 1384  vi output_cpp/gm_graph/src/gm_graph.cc
+ 1385  grep -r '_numNodes' output_cpp/gm_graph/inc/
+ 1386  vi output_cpp/gm_graph/inc/gm_graph.h
+ 1387  grep -r 'freeze' output_cpp/gm_graph/inc/
+ 1388  grep -r 'freeze' output_cpp/gm_graph/
+ 1389  grep -r 'freeze' output_cpp/gm_graph/src/graph_gen.cc 
+ 1390  grep -r 'freeze' output_cpp/gm_graph/src/gm_graph.cc 
+ 1391  vi  output_cpp/gm_graph/src/gm_graph.cc 
+ 1392  vi  output_cpp/gm_graph/src/graph_gen.cc 
+ 1393  make
+ 1394  vi  output_cpp/gm_graph/src/graph_gen.cc 
+ 1395  make
+ 1396  ./output_cpp/bin/pagerank data/karate.txt 34 2
+ 1397  vi  output_cpp/gm_graph/src/graph_gen.cc 
+ 1398  make
+ 1399  ./output_cpp/bin/pagerank data/karate.txt 34 2
+ 1400  make
+ 1401  ./output_cpp/bin/pagerank data/karate.txt 34 2
+ 1402  vi  output_cpp/gm_graph/src/graph_gen.cc 
+ 1403  make
+ 1404  ./output_cpp/bin/pagerank data/karate.txt 34 2
+ 1405  make
+ 1406  ./output_cpp/bin/pagerank data/karate.txt 34 2
+ 1407  make
+ 1408  ./output_cpp/bin/pagerank data/karate.txt 34 2
+ 1409  vi  output_cpp/gm_graph/src/graph_gen.cc 
+ 1410  make clean
+ 1411  make
+ 1412  ./output_cpp/bin/pagerank data/karate.txt 34 2
+ 1413  make
+ 1414  ./output_cpp/bin/pagerank data/karate.txt 34 2
+ 1415  make
+ 1416  ./output_cpp/bin/pagerank data/karate.txt 34 2
+ 1417  make
+ 1418  ./output_cpp/bin/pagerank data/karate.txt 34 2
+ 1419  make
+ 1420  ./output_cpp/bin/pagerank data/karate.txt 34 2
+ 1421  vi output_cpp/src/pagerank_main.cc 
+ 1422  make
+ 1423  ./output_cpp/bin/pagerank data/karate.txt 34 2
+ 1424  vi output_cpp/src/pagerank_main.cc 
+ 1425  make
+ 1426  ./output_cpp/bin/pagerank data/karate.txt 34 2
+ 1427  make
+ 1428  ./output_cpp/bin/pagerank data/karate.txt 34 2
+ 1429  vi output_cpp/src/pagerank_main.cc 
+ 1430  make
+ 1431  vi output_cpp/src/pagerank_main.cc 
+ 1432  make
+ 1433  ./output_cpp/bin/pagerank data/karate.txt 34 2
+ 1434  vi output_cpp/src/pagerank_main.cc 
+ 1435  vi  output_cpp/gm_graph/src/graph_gen.cc 
+ 1436  make clean
+ 1437  make
+ 1438  ./output_cpp/bin/pagerank data/karate.txt 34 2
+ 1439  vi  output_cpp/gm_graph/src/graph_gen.cc 
+ 1440  make clean
+ 1441  make
+ 1442  vi output_cpp/src/pagerank_main.cc 
+ 1443  vi output_cpp/src/common_main.h 
+ 1444  vi output_cpp/src/katz_v2_main.cc 
+ 1445  cp /home/corse/tmessi/doctorat/load_balancing/pagerank_load_balancing/time_manager.* output_cpp/src/
+ 1446  cd output_cpp/src/
+ 1447  ls
+ 1448  vi common_main.h 
+ 1449  vi pagerank_main.cc 
+ 1450  make
+ 1451  vi pagerank_main.cc 
+ 1452  make
+ 1453  cd ..
+ 1454  make
+ 1455  vi src/pagerank_main.cc 
+ 1456  make
+ 1457  vi src/pagerank_main.cc 
+ 1458  make
+ 1459  vi src/pagerank_main.cc 
+ 1460  htop
+ 1461  vi src/pagerank_main.cc 
+ 1462  make
+ 1463  htop
+ 1464  make
+ 1465  vi Makefile 
+ 1466  cd src/
+ 1467  ls
+ 1468  vi Makefile 
+ 1469  make
+ 1470  cd ..
+ 1471  vi src/pagerank_main.cc 
+ 1472  make
+ 1473  vi src/pagerank_main.cc 
+ 1474  make
+ 1475  ./bin/pagerank data/karate.txt 34 2
+ 1476  cd ..
+ 1477  ./output_cpp/bin/pagerank data/karate.txt 34 2
+ 1478  vi output_cpp/src/pagerank_main.cc 
+ 1479  ./bin/pagerank data/karate.txt 34 2
+ 1480  ./output_cpp/bin/pagerank data/karate.txt 34 2
+ 1481  vi output_cpp/src/pagerank_main.cc 
+ 1482  make
+ 1483  ./output_cpp/bin/pagerank data/karate.txt 34 2
+ 1484  vi output_cpp/src/pagerank_main.cc 
+ 1485  ls
+ 1486  cd doctorat/
+ 1487  cd load_balancing/pagerank_load_balancing/
+ 1488  ./pagerank_pthreads data/karate.txt 
+ 1489  ./pagerank_pthreads data/karate.txt 0.001 0.85 2 1 1 1
+ 1490  ./pagerank_pthreads data/karate.txt 0.001 0.85 2 1 1
+ 1491  ./pagerank_pthreads data/karate.txt 0.001 0.85 2 1 1 1 1
+ 1492  cat commande.txt 
+ 1493  ./pagerank_pthreads data/karate.txt 34 0.001 0.85 1 1 0
+ 1494  ./pagerank_pthreads data/karate.txt 34 0.001 0.85 1 1 0 1
+ 1495  vi pagerank_pthreads.c 
+ 1496  make
+ 1497  ./pagerank_pthreads data/karate.txt 34 0.001 0.85 1 1 0 1
+ 1498  vi pagerank_pthreads.c 
+ 1499  pwd
+ 1500  vi pagerank_pthreads.c 
+ 1501  htop
+ 1502  vi pagerank_pthreads.c 
+ 1503  htop
+ 1504  vi pagerank_pthreads.c 
+ 1505  make
+ 1506  ./pagerank_pthreads data/karate.txt 34 0.001 0.85 1 1 0 1
+ 1507  vi pagerank_pthreads.c 
+ 1508  make
+ 1509  ./pagerank_pthreads data/karate.txt 34 0.001 0.85 1 1 0 1
+ 1510  vi pagerank_pthreads.c 
+ 1511  ./pagerank_pthreads data/karate.txt 34 0.001 0.85 1 1 0 1
+ 1512  vi pagerank_pthreads.c 
+ 1513  ./pagerank_pthreads data/karate.txt 34 0.00001 0.85 1 1 0 1
+ 1514  vi pagerank_pthreads.c 
+ 1515  screen -r -d
+ 1516  exit
+ 1517  cd doctorat/load_balancing/pagerank_load_balancing/
+ 1518  ls data
+ 1519  cp data/astro-ph_prepared.txt ../../../modified_green_marl/apps/data/
+ 1520  cat commande.txt 
+ 1521  ./pagerank_pthreads data/astro-ph.txt 16706 0.00000000001 0.85 8 8 0
+ 1522  ./pagerank_pthreads data/astro-ph.txt 16706 0.00000000001 0.85 2 1 1 1
+ 1523  ./pagerank_pthreads data/astro-ph.txt 16706 0.00001 0.85 2 1 1 1
+ 1524  ./pagerank_pthreads data/astro-ph.txt 16706 0.00001 0.85 2 7 1 1
+ 1525  ./pagerank_pthreads data/astro-ph.txt 16706 0.00001 0.85 8 7 1 1
+ 1526  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 8 7 1 1
+ 1527  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 32 7 1 1
+ 1528  vi pagerank_pthreads.c 
+ 1529  make
+ 1530  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 32 7 1 1
+ 1531  ls data
+ 1532  ls
+ 1533  ls data_com-lj
+ 1534  ls data_com-lj_/
+ 1535  cp data_com-lj_/com-lj_prepared.txt ../../../modified_green_marl/apps/data/
+ 1536  cp data_com-lj_/com-lj_prepared_5.txt ../../../modified_green_marl/apps/data/
+ 1537  cp data_com-lj_/com-lj_Gorder_bloc_5.txt ../../../modified_green_marl/apps/data/
+ 1538  cat commande.txt 
+ 1539  ./pagerank_pthreads data_com-lj_/com-lj_prepared.txt 3997962 0.00001 0.85 32 7 1 1
+ 1540  htop
+ 1541  ./pagerank_pthreads data_com-lj_/com-lj_prepared.txt 3997962 0.00001 0.85 32 1 1 1
+ 1542  ./pagerank_pthreads data_com-lj_/com-lj_Gorder_bloc_5.txt 3997962 0.00001 0.85 32 7 1 1
+ 1543  htop
+ 1544  cd ..
+ 1545  ls
+ 1546  vi graph_yale.c
+ 1547  htop
+ 1548  vi graph_yale.c
+ 1549  pwd
+ 1550  vi graph_yale.c
+ 1551  screen -ls
+ 1552  screen
+ 1553  vi gm_graph.h
+ 1554  grep -r 'load_binary_internal' ./
+ 1555  grep -r 'load_binary_internal' ../
+ 1556  grep -r 'add_edge' ../
+ 1557  grep -r 'freeze' ../
+ 1558  htop
+ 1559  grep -r 'freeze' ../
+ 1560  htop
+ 1561  vi ../../../src/pagerank.gm 
+ 1562  vi ../../../output_cpp/generated/pagerank.cc 
+ 1563  vi gm_graph.h
+ 1564  vi ../src/graph_gen.cc 
+ 1565  cd ..
+ 1566  vi generated/pagerank.cc 
+ 1567  htop
+ 1568  vi generated/pagerank.cc 
+ 1569  vi src/pagerank_main.cc 
+ 1570  vi generated/pagerank.cc 
+ 1571  vi src/pagerank_main.cc 
+ 1572  htop
+ 1573  ls
+ 1574  vi gm_graph/src/graph_gen.cc 
+ 1575  ls
+ 1576  ls ..
+ 1577  vi ../pagerank_green-marl_time.txt 
+ 1578  ls
+ 1579  vi pagerank_green-marl_time.txt 
+ 1580  vi gm_graph/src/graph_gen.cc 
+ 1581  make
+ 1582  htop
+ 1583  vi pagerank_green-marl_time.txt 
+ 1584  vi gm_graph/src/graph_gen.cc 
+ 1585  ls ../data/
+ 1586  ls
+ 1587  ls ..
+ 1588  htop
+ 1589  cd /home/corse/tmessi/doctorat/load_balancing/pagerank_load_balancing/
+ 1590  ls
+ 1591  vi pagerank_pthreads.c
+ 1592  htop
+ 1593  vi pagerank_pthreads.c
+ 1594  htop
+ 1595  ./pagerank_pthreads data_com-lj_/com-lj_prepared.txt 3997962 0.00001 0.85 32 1 1 1
+ 1596  vi pagerank_pthreads.c 
+ 1597  make
+ 1598  ./pagerank_pthreads data/karate.txt 34 0.00001 0.85 1 1 1 1
+ 1599  vi pagerank_pthreads.c 
+ 1600  make
+ 1601  screen -ls
+ 1602  screen -r
+ 1603  cd modified_green_marl/apps/output_cpp/
+ 1604  bin/pagerank ../data/astro-ph_prepared.txt 
+ 1605  bin/pagerank ../data/astro-ph_prepared.txt 16706 2
+ 1606  bin/pagerank ../data/astro-ph_prepared.txt 16706 8
+ 1607  make
+ 1608  bin/pagerank ../data/astro-ph_prepared.txt 16706 8
+ 1609  bin/pagerank ../data/astro-ph_prepared.txt 16706 32
+ 1610  make
+ 1611  bin/pagerank ../data/astro-ph_prepared.txt 16706 32
+ 1612  bin/pagerank ../data/com-lj_prepared.txt 3997962 32
+ 1613  bin/pagerank ../data/com-lj_Gorder_bloc_5.txt 3997962 32
+ 1614  make
+ 1615  bin/pagerank ../data/com-lj_Gorder_bloc_5.txt 3997962 32
+ 1616  bin/pagerank ../data/com-lj_prepared.txt 3997962 32
+ 1617  bin/pagerank ../data/com-lj_prepared.txt 3997962 1
+ 1618  bin/pagerank ../data/com-lj_Gorder_bloc_5.txt 3997962 1
+ 1619  bin/pagerank ../data/com-lj_prepared.txt 3997962 1
+ 1620  htop
+ 1621  ls
+ 1622  cd gm_graph/src/
+ 1623  ls
+ 1624  vi graph_gen.cc 
+ 1625  htop
+ 1626  vi graph_gen.cc 
+ 1627  cd doctorat/load_balancing/pagerank_load_balancing/
+ 1628  ls
+ 1629  vi pagerank_pthreads.c
+ 1630  vi pagerank_pthreads.h
+ 1631  make
+ 1632  vi pagerank_pthreads.c
+ 1633  vi temp1.txt 
+ 1634  ls
+ 1635  ls data/karate*
+ 1636  vi data/karate_ppgr_load_file.txt 
+ 1637  vi data/astro-ph_ppgr_load_file.txt 
+ 1638  vi data/astro-ph_prepared_ppgr_load_file.txt 
+ 1639  vi data/astro-ph_prepared_lmax_load_file.txt 
+ 1640  vi data/astro-ph_reinit_load_file.txt 
+ 1641  vi data/astro-ph_prepared_reinit_load_file.txt 
+ 1642  make
+ 1643  gcc --version
+ 1644  make
+ 1645  htop
+ 1646  make
+ 1647  make clean
+ 1648  make
+ 1649  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 4 -1 1 1
+ 1650  gcc --version
+ 1651  vi Makefile 
+ 1652  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 4 -1 1 1
+ 1653  vi data/astro-ph_prepared_reinit_load_file.txt 
+ 1654  ./pagerank_pthreads data_com-lj_/com-lj_prepared.txt 3997962 0.00001 0.85 32 -11 1 1
+ 1655  ./pagerank_pthreads data_com-lj_/com-lj_prepared.txt 3997962 0.00001 0.85 32 -1 1 1
+ 1656  make
+ 1657  ./pagerank_pthreads data_com-lj_/com-lj_prepared.txt 3997962 0.00001 0.85 32 -1 1 1
+ 1658  ./pagerank_pthreads data_com-lj_/com-lj_prepared.txt 3997962 0.00001 0.85 32 6 1 1
+ 1659  exit
+ 1660  cd doctorat/load_balancing/pagerank_load_balancing/
+ 1661  ls
+ 1662  vi pagerank_pthreads.h
+ 1663  make
+ 1664  make clean
+ 1665  make
+ 1666  vi pagerank_pthreads.h
+ 1667  make
+ 1668  history 
+ 1669  ./pagerank_pthreads data_com-lj_/com-lj_prepared.txt 3997962 0.00001 0.85 32 1 1 
+ 1670  ./pagerank_pthreads data_com-lj_/com-lj_prepared.txt 3997962 0.00001 0.85 32 1 1 1
+ 1671  ./pagerank_pthreads data_com-lj_/com-lj_prepared.txt 3997962 0.00001 0.85 32 -1 1 1
+ 1672  ./pagerank_pthreads data_com-lj_/com-lj_prepared.txt 3997962 0.00001 0.85 32 13 1 1
+ 1673  ./pagerank_pthreads data_com-lj_/com-lj_prepared.txt 3997962 0.00001 0.85 32 7 1 1
+ 1674  ./pagerank_pthreads data_com-lj_/com-lj_prepared.txt 3997962 0.00001 0.85 32 6 1 1
+ 1675  ./pagerank_pthreads data_com-lj_/com-lj_prepared.txt 3997962 0.00001 0.85 32 12 1 1
+ 1676  ./pagerank_pthreads data_com-lj_/com-lj_prepared.txt 3997962 0.00001 0.85 32 22 1 1
+ 1677  ./pagerank_pthreads data_com-lj_/com-lj_prepared.txt 3997962 0.00001 0.85 32 2 1 1
+ 1678  ./pagerank_pthreads data_com-lj_/com-lj_prepared.txt 3997962 0.00001 0.85 32 8 1 1
+ 1679  make
+ 1680  ./pagerank_pthreads data/karate.txt 34 0.00001 0.85 6 1 1 1
+ 1681  ./pagerank_pthreads data/karate.txt 34 0.00001 0.85 6 7 1 1
+ 1682  ./pagerank_pthreads data/karate.txt 34 0.00001 0.85 6 -1 1 1
+ 1683  cat commande.txt 
+ 1684  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 6 -1 1 1
+ 1685  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 6 1 1 1
+ 1686  make
+ 1687  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 6 1 1 1
+ 1688  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 6 -1 1 1
+ 1689  make
+ 1690  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 6 -1 1 1 > temp-1.txt
+ 1691  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 6 1 1 1 > temp1.txt
+ 1692  vi temp-1.txt 
+ 1693  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 6 7 1 1 > temp7.txt
+ 1694  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 6 13 1 1 > temp13.txt
+ 1695  vi temp7.txt 
+ 1696  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 6 13 1 1
+ 1697  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 6 7 1 1
+ 1698  df -h
+ 1699  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 6 2 1 1
+ 1700  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 6 8 1 1
+ 1701  vi pagerank_pthreads.c
+ 1702  htop
+ 1703  vi pagerank_pthreads.c
+ 1704  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 6 -1 1 1
+ 1705  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 1 -1 1 1
+ 1706  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 2 -1 1 1
+ 1707  vi pagerank_pthreads.c
+ 1708  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 2 -1 1 1
+ 1709  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 1 -1 1 1
+ 1710  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 1 -1 1 1
+ 1711  vi pagerank_pthreads.c
+ 1712  htop
+ 1713  vi pagerank_pthreads.c
+ 1714  htop
+ 1715  exit
+ 1716  cd doctorat/load_balancing/pagerank_load_balancing/
+ 1717  make
+ 1718  history 
+ 1719  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 6 13 1 1
+ 1720  vi data/astro-ph_prepared_reinit_load_file.txt 
+ 1721  make
+ 1722  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 6 13 1 1
+ 1723  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 6 -1 1 1
+ 1724  vi data/astro-ph_prepared_reinit_load_file.txt 
+ 1725  make
+ 1726  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 6 -1 1 1
+ 1727  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 6 13 1 1
+ 1728  vi pagerank_pthreads.h
+ 1729  make
+ 1730  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 6 13 1 1
+ 1731  make
+ 1732  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 6 13 1 1
+ 1733  make
+ 1734  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 6 13 1 1
+ 1735  make
+ 1736  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 6 13 1 1
+ 1737  make
+ 1738  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 6 13 1 1
+ 1739  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 6 -1 1 1
+ 1740  make
+ 1741  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 6 -1 1 1
+ 1742  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 6 13 1 1
+ 1743  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 6 12 1 1
+ 1744  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 6 6 1 1
+ 1745  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 6 2 1 1
+ 1746  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 6 8 1 1
+ 1747  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 6 1 1 1
+ 1748  ./pagerank_pthreads data/astro-ph_prepared.txt 16706 0.00001 0.85 6 7 1 1
+ 1749  history 
+ 1750  ./pagerank_pthreads data_com-lj_/com-lj_prepared.txt 3997962 0.00001 0.85 32 22 1 1
+ 1751  ./pagerank_pthreads data_com-lj_/com-lj_prepared.txt 3997962 0.00001 0.85 32 -1 1 1
+ 1752  ./pagerank_pthreads data_com-lj_/com-lj_prepared.txt 3997962 0.00001 0.85 32 13 1 1
+ 1753  ./pagerank_pthreads data_com-lj_/com-lj_prepared.txt 3997962 0.00001 0.85 32 2 1 1
+ 1754  ./pagerank_pthreads data_com-lj_/com-lj_prepared.txt 3997962 0.00001 0.85 32 8 1 1
+ 1755  cd ~/modified_green_marl/apps/output_cpp/
+ 1756  grep -r 'do_bfs_forward' ../..
+ 1757  vi generated/pagerank.cc 
+ 1758  grep -r 'nowait schedule(dynamic,128)' ../../..
+ 1759  cd ../..
+ 1760  grep -r 'nowait schedule(dynamic,128)' .
+ 1761  grep -r 'schedule(dynamic,128)' .
+ 1762  ls src/backend_cpp/
+ 1763  vi gm_cpp_decide_schedule.cc 
+ 1764  cd src/backend_cpp/
+ 1765  vi gm_cpp_decide_schedule.cc 
+ 1766  grep -r 'Body.NL()' ./
+ 1767  grep -r 'Body.NL()' ../
+ 1768  ls
+ 1769  grep -r 'Body.NL()' ../*.h
+ 1770  grep -r 'Body.NL()' ./
+ 1771  grep -r 'Body' ./
+ 1772  grep -r 'Body ' ./
+ 1773  exit
+ 1774  cd doctorat/load_balancing/pagerank_load_balancing/
+ 1775  vi pagerank_pthreads.c
+ 1776  htop
+ 1777  exit
+ 1778  cd doctorat/load_balancing/pagerank_load_balancing/
+ 1779  vi pagerank_pthreads.c
+ 1780  cd ..
+ 1781  cd modified_green_marl/apps/
+ 1782  htop
+ 1783  cd ..
+ 1784  cd doctorat/load_balancing/
+ 1785  vi graph_yale.c
+ 1786  cd ../../modified_green_marl/apps/output_cpp/
+ 1787  make
+ 1788  history
+ 1789  bin/pagerank 
+ 1790  bin/pagerank ../data/karate.txt 
+ 1791  bin/pagerank ../data/karate.txt 34 1
+ 1792  vi src/pagerank_main.cc 
+ 1793  make
+ 1794  bin/pagerank ../data/karate.txt 34 1
+ 1795  vi src/pagerank_main.cc 
+ 1796  make
+ 1797  vi src/pagerank_main.cc 
+ 1798  make
+ 1799  bin/pagerank ../data/com-lj_Gorder_bloc_5.txt 3997962 1
+ 1800  bin/pagerank ../data/com-lj_prepared.txt 3997962 1
+ 1801  vi generated/pagerank.cc 
+ 1802  vi generated/bc_adj.cc
+ 1803  grep -r 'do_bfs_forward' ..
+ 1804  grep -r 'do_bfs_forward' ..
+ 1805  vi ../output_cpp/gm_graph/inc/gm_bfs_template.h
+ 1806  vi generated/bc_adj.cc
+ 1807  vi generated/pagerank.cc 
+ 1808  grep -r 'nowait schedule(dynamic,128)' ..
+ 1809  grep -r 'nowait schedule(dynamic,128)' ../..
+ 1810  grep -r 'nowait schedule(dynamic,128)' ../../..
+ 1811  cd ..
+ 1812  vi src/backend_cpp/gm_cpp_gen.cc 
+ 1813  grep -r 'Body' ../../..
+ 1814  grep -r 'Body' .
+ 1815  grep -r 'Body.NL' .
+ 1816  grep -r 'Body.NL' . > tmp
+ 1817  grep -r 'Body.NL' ./ > tmp 
+ 1818  grep -r 'Body.NL' ./ > temp.txt
+ 1819  grep -r 'Body.NL()' ./
+ 1820  vi src/backend_cpp/gm_cpp_gen.cc 
+ 1821  exit
+ 1822  cd doctorat/load_balancing/pagerank_load_balancing/
+ 1823  vi pagerank_pthreads.c
+ 1824  screen -ls
+ 1825  screen -r
+ 1826  exit
+ 1827  cd doctorat/load_balancing/pagerank_load_balancing/
+ 1828  history
+ 1829  ./pagerank_pthreads data_com-lj_/com-lj_prepared.txt 3997962 0.00001 0.85 32 -1 1 1
+ 1830  ./pagerank_pthreads data_com-lj_/com-lj_prepared.txt 3997962 0.00001 0.85 32 1 1 1
+ 1831  ./pagerank_pthreads data_com-lj_/com-lj_prepared.txt 3997962 0.00001 0.85 32 -1 1 1
+ 1832  ./pagerank_pthreads data_com-lj_/com-lj_prepared.txt 3997962 0.00001 0.85 32 2 1 1
+ 1833  make
+ 1834  htop
+ 1835  cd modified_green_marl/
+ 1836  ls
+ 1837  history 
+ 1838  grep -r 'nowait schedule(dynamic,128)' ..
+ 1839  ls src/
+ 1840  vi src/backend_cpp/gm_cpp_gen.cc 
+ 1841  vi src/backend_cpp/gm_cpp_gen_foreach.cc 
+ 1842  vi src/backend_cpp/gm_cpp_gen.cc 
+ 1843  grep -r 'prepare_parallel_for' ..
+ 1844  grep -r 'prepare_parallel_for' ./
+ 1845  vi src/backend_cpp/gm_cpp_gen.cc 
+ 1846  grep -r 'generate_sent_foreach' ./
+ 1847  vi ./src/common/gm_code_generator.cc
+ 1848  vi src/backend_cpp/gm_cpp_gen.cc 
+ 1849  grep -r 'need_down_initializer' ./
+ 1850  vi ./src/backend_cpp/gm_cpp_gen_foreach.cc
+ 1851  cat ./src/backend_cpp/gm_cpp_gen_foreach.cc
+ 1852  grep -r 'gm_is_simple_collection_iteration' ./
+ 1853  vi ./src/inc/gm_defs.h
+ 1854  cat ./src/inc/gm_defs.h
+ 1855  vi ./src/inc/gm_defs.h
+ 1856  grep -r 'GMITER_COLLECTION_OF_COLLECTION' ./
+ 1857  vi ./src/common/gm_misc.cc
+ 1858  vi ./src/frontend/gm_new_typecheck_step1.cc
+ 1859  make
+ 1860  cd apps/
+ 1861  make
+ 1862  vi src/pagerank.gm 
+ 1863  cat ./src/backend_cpp/gm_cpp_gen_foreach.cc
+ 1864  cd ..
+ 1865  cat ./src/backend_cpp/gm_cpp_gen_foreach.cc
+ 1866  vi ./src/backend_cpp/gm_cpp_gen_foreach.cc
+ 1867  make gen
+ 1868  make apps
+ 1869  vi ./src/backend_cpp/gm_cpp_gen_foreach.cc
+ 1870  make apps
+ 1871  vi ./src/backend_cpp/gm_cpp_gen_foreach.cc
+ 1872  make apps
+ 1873  vi ./src/backend_cpp/gm_cpp_gen_foreach.cc
+ 1874  screen
+ 1875  screen -r
+ 1876  screen -r 51
+ 1877  vi ./src/backend_cpp/gm_cpp_gen_foreach.cc
+ 1878  htop
+ 1879  vi ./src/backend_cpp/gm_cpp_gen_foreach.cc
+ 1880  ls src/backend_cpp/
+ 1881  vi apps/output_cpp/gm_graph/inc/gm_graph.h 
+ 1882  vi ./src/backend_cpp/gm_cpp_gen_foreach.cc
+ 1883  vi apps/output_cpp/gm_graph/inc/gm_graph.h 
+ 1884  vi apps/output_cpp/gm_graph/inc/gm_internal.h 
+ 1885  vi apps/output_cpp/gm_graph/inc/gm_graph.h 
+ 1886  vi ./src/backend_cpp/gm_cpp_gen_foreach.cc
+ 1887  vi apps/output_cpp/gm_graph/inc/graph_gen.h 
+ 1888  make
+ 1889  vi ./src/backend_cpp/gm_cpp_gen_foreach.cc
+ 1890  vi apps/output_cpp/gm_graph/inc/graph_gen.h 
+ 1891  vi ./src/backend_cpp/gm_cpp_gen_foreach.cc
+ 1892  screen -ls
+ 1893  screen -r
+ 1894  cd doctorat/load_balancing/pagerank_load_balancing/
+ 1895  vi pagerank_pthreads.c 
+ 1896  htop
+ 1897  screen
+ 1898  screen -ls
+ 1899  cd ..
+ 1900  cd modified_green_marl/
+ 1901  cd apps/output_cpp/src/
+ 1902  vi pagerank_main.cc 
+ 1903  cd ../generated/
+ 1904  vi pagerank.cc 
+ 1905  screen -r
+ 1906  vi pagerank.cc 
+ 1907  vi ../../src/pagerank.gm 
+ 1908  vi pagerank.cc 
+ 1909  cd ..
+ 1910  make
+ 1911  vi src/pagerank.gm 
+ 1912  vi apps/src/pagerank.gm 
+ 1913  make
+ 1914  vi apps/output_cpp/generated/pagerank.cc 
+ 1915  vi apps/output_cpp/generated/pagerank.h 
+ 1916  grep -r 'gm.h' ./
+ 1917  vi apps/output_cpp/gm_graph/inc/gm.h
+ 1918  vi apps/output_cpp/gm_graph/inc/gm_graph.h 
+ 1919  vi apps/output_cpp/gm_graph/inc/gm.h
+ 1920  vi apps/output_cpp/gm_graph/inc/gm_graph.h 
+ 1921  vi apps/output_cpp/gm_graph/inc/graph_gen.h 
+ 1922  vi apps/output_cpp/gm_graph/inc/gm_graph.h 
+ 1923  htop
+ 1924  make
+ 1925  vi apps/output_cpp/gm_graph/inc/gm_graph.h 
+ 1926  vi apps/output_cpp/generated/pagerank.cc 
+ 1927  make clean
+ 1928  make
+ 1929  vi apps/output_cpp/generated/pagerank.cc 
+ 1930  make 
+ 1931  make clean
+ 1932  make
+ 1933  vi apps/output_cpp/generated/pagerank.cc 
+ 1934  screen -ls
+ 1935  screen -r
+ 1936  ls
+ 1937  cd modified_green_marl/
+ 1938  vi ./src/backend_cpp/gm_cpp_gen_foreach.cc
+ 1939  htop
+ 1940  vi ./src/backend_cpp/gm_cpp_gen_foreach.cc
+ 1941  screen
+ 1942  screen -ls
+ 1943  screen -r 77332.pts-0.idrouille 
+ 1944  screen -r 48738.pts-0.idrouille 
+ 1945  cd modified_green_marl/
+ 1946  vi apps/output_cpp/generated/pagerank.cc 
+ 1947  vi apps/output_cpp/generated/pagerank.cc
+ 1948  htop
+ 1949  vi apps/output_cpp/generated/pagerank.cc
+ 1950  vi apps/output_cpp/generated/katz_v2.cc 
+ 1951  vi apps/output_cpp/generated/pagerank.cc
+ 1952  cd modified_green_marl/
+ 1953  cd apps/
+ 1954  make clean
+ 1955  make
+ 1956  cd ..
+ 1957  make
+ 1958  make clean
+ 1959  make
+ 1960  htop
+ 1961  make
+ 1962  grep -r 'task_tab' ./
+ 1963  vi ./apps/output_cpp/gm_graph/inc/graph_gen.h
+ 1964  make
+ 1965  vi ./apps/output_cpp/gm_graph/inc/graph_gen.h
+ 1966  vi ./apps/output_cpp/gm_graph/inc/gm_graph.h 
+ 1967  make
+ 1968  vi ./apps/output_cpp/gm_graph/inc/graph_gen.h
+ 1969  make clean
+ 1970  make
+ 1971  vi ./apps/output_cpp/gm_graph/inc/graph_gen.h
+ 1972  vi ./apps/output_cpp/gm_graph/inc/gm_graph.h 
+ 1973  make
+ 1974  vi ./apps/output_cpp/gm_graph/inc/gm_graph.h 
+ 1975  make
+ 1976  make clean
+ 1977  make
+ 1978  vi ./apps/output_cpp/gm_graph/inc/gm_graph.h 
+ 1979  make
+ 1980  vi ./apps/output_cpp/gm_graph/inc/graph_gen.h
+ 1981  vi ./src/backend_cpp/gm_cpp_gen_foreach.cc
+ 1982  vi ./apps/output_cpp/gm_graph/inc/graph_gen.h
+ 1983  vi ./apps/output_cpp/gm_graph/inc/gm_graph.h 
+ 1984  htop
+ 1985  vi ./apps/output_cpp/gm_graph/inc/gm_graph.h 
+ 1986  make
+ 1987  make clean
+ 1988  make
+ 1989  make clean
+ 1990  make
+ 1991  vi ./apps/output_cpp/gm_graph/inc/graph_gen.h
+ 1992  make
+ 1993  vi apps/output_cpp/generated/pagerank.cc 
+ 1994  make
+ 1995  vi apps/output_cpp/generated/pagerank.cc 
+ 1996  make clean
+ 1997  make
+ 1998  vi apps/output_cpp/generated/pagerank.cc 
+ 1999  make
+ 2000  history
+ 2001  history > temp_20.txt
