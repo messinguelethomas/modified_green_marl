@@ -1,4 +1,4 @@
-CC = g++
+CC = g++-4.5
 INC=../inc/
 LIB=../lib
 

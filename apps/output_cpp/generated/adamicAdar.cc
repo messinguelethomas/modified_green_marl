@@ -9,7 +9,9 @@ void adamicAdar(gm_graph& G, double*G_aa)
     G.prepare_edge_source();
 
 
-    #pragma omp parallel for schedule(dynamic,128)
+    #pragma omp parallel
+    #pragma omp single
+    #pragma omp taskloop grainsize(1)
     for (edge_t e = 0; e < G.num_edges(); e ++) 
     {
         node_t from;

@@ -72,6 +72,7 @@ static bool check_add_and_report_conflicts(list_t& L, gm_rwinfo_map B) {
                 ast_id* loc = jj->location;
                 if (is_bound_error) {
                     gm_type_error(GM_ERROR_DOUBLE_BOUND_ITOR, loc->get_line(), loc->get_col(), jj->bound_symbol->getId()->get_orgname());
+		    test_undefined_reference();
                     return false;
                 }
                 if (is_type_error) {

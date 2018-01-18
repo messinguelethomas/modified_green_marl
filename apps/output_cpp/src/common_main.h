@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <sys/time.h>
 #include "gm.h"
+#include "graph_gen.h"
 
 class main_t
 {

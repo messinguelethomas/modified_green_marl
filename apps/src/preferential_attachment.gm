@@ -1,0 +1,12 @@
+Procedure preferential_attachment(G:Graph)
+{
+  For(n1:G.Nodes)
+  {
+    Foreach(n2:G.Nodes)(n1 < n2)
+    {
+        Int pref_attach = n1.Degree() * n2.Degree();	
+        [std::cout<<$n1<<" "<<$n2<<" "<<$pref_attach<<std::endl];
+        [printf("{(%d,%d),%d}\n",$n1,$n2,$pref_attach)];
+    }
+  }
+}

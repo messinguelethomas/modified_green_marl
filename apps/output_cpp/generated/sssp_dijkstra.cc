@@ -17,8 +17,11 @@ bool dijkstra(gm_graph& G, int32_t* G_Len,
     found = false ;
     failed = false ;
 
-    #pragma omp parallel for
-    for (node_t t0 = 0; t0 < G.num_nodes(); t0 ++) 
+    #pragma omp parallel
+    #pragma omp single
+    #pragma omp taskloop
+    for (int tsk_t0 = 0; tsk_t0 < G.num_task(); tsk_t0++)
+    for (node_t t0 = G.task_tab[tsk_t0].start; t0 < G.task_tab[tsk_t0].end; t0 ++) 
     {
         G_Parent[t0] = gm_graph::NIL_NODE ;
         G_Reached[t0] = false ;

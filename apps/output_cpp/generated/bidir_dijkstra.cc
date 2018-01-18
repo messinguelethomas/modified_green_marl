@@ -31,8 +31,11 @@ bool bidir_dijkstra(gm_graph& G, int32_t* G_Weight,
     mid = gm_graph::NIL_NODE ;
     terminate = false ;
 
-    #pragma omp parallel for
-    for (node_t t0 = 0; t0 < G.num_nodes(); t0 ++) 
+    #pragma omp parallel
+    #pragma omp single
+    #pragma omp taskloop
+    for (int tsk_t0 = 0; tsk_t0 < G.num_task(); tsk_t0++)
+    for (node_t t0 = G.task_tab[tsk_t0].start; t0 < G.task_tab[tsk_t0].end; t0 ++) 
     {
         G_Parent[t0] = gm_graph::NIL_NODE ;
         G_RParent[t0] = gm_graph::NIL_NODE ;
@@ -42,8 +45,11 @@ bool bidir_dijkstra(gm_graph& G, int32_t* G_Weight,
     }
     G_FCost[src] = 0 ;
 
-    #pragma omp parallel for
-    for (node_t t5 = 0; t5 < G.num_nodes(); t5 ++) 
+    #pragma omp parallel
+    #pragma omp single
+    #pragma omp taskloop
+    for (int tsk_t5 = 0; tsk_t5 < G.num_task(); tsk_t5++)
+    for (node_t t5 = G.task_tab[tsk_t5].start; t5 < G.task_tab[tsk_t5].end; t5 ++) 
         G_RCost[t5] = INT_MAX ;
 
     G_RCost[dst] = 0 ;

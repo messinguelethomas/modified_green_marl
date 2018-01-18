@@ -9,8 +9,18 @@
 #include <omp.h>
 #include <string>
 #include <unordered_map>
+#include <limits.h>
+#include <string.h>
 
 #include "gm_internal.h"
+
+typedef struct
+{
+	int tid;
+	int start, end;
+	unsigned long long degree_sum;
+}task_type;
+
 
 typedef node_t node_id;
 typedef edge_t edge_id;
@@ -148,6 +158,9 @@ friend class gm_graph_hdfs;
     bool has_edge_to(node_t source, node_t to);
     edge_t get_edge_idx_for_src_dest(node_t src, node_t dest);
 
+    int num_task(){
+	return _numTask;
+    }
     node_t num_nodes() {
         return _numNodes;
     }
@@ -442,6 +455,10 @@ friend class gm_graph_hdfs;
 
     bool store_nodekey_binary(FILE*f);
     bool load_nodekey_binary(FILE*f);
+  
+  public:
+    task_type* task_tab;
+    int _numTask;
 };
 
 #endif

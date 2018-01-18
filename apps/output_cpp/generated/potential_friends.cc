@@ -8,8 +8,11 @@ void potential_friends(gm_graph& G, gm_property_of_collection<gm_node_set>& G_po
     G.do_semi_sort();
 
 
-    #pragma omp parallel for schedule(dynamic,128)
-    for (node_t v = 0; v < G.num_nodes(); v ++) 
+    #pragma omp parallel
+    #pragma omp single
+    #pragma omp taskloop grainsize(1)
+    for (int tsk_v = 0; tsk_v < G.num_task(); tsk_v++)
+    for (node_t v = G.task_tab[tsk_v].start; v < G.task_tab[tsk_v].end; v ++) 
         for (edge_t u_idx = G.begin[v];u_idx < G.begin[v+1] ; u_idx ++) 
         {
             node_t u = G.node_idx [u_idx];

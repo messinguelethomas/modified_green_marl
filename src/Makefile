@@ -1,4 +1,7 @@
-CC = g++-4.5
+#CC = gcc
+#CC = g++-4.5
+#CC = g++-6
+CC = g++
 LEX = flex
 YACC = bison
 PARSE = ./parse
@@ -6,7 +9,7 @@ INC = ./inc
 OBJ = ../obj
 BIN = ../bin
 EXTLIBS = ext-lib
-CFLAGS += -g -O0 -I$(INC) -I. -W -Wno-unused-parameter
+CFLAGS += -g -v -O0 -I$(INC) -I. -W -Wno-unused-parameter
 # Mac OS does not have librt
 UNAME := $(shell uname -s)
 ifneq ($(UNAME),Darwin)
@@ -193,7 +196,7 @@ all: $(BIN)/gm_comp
 endif
 
 $(BIN)/gm_comp: $(SRCS1) $(OBJS) $(HEADS)
-	$(CC) $(CFLAGS) $(OBJS) -o $@ $(LDFLAGS)
+	$(CC) $(CFLAGS)  $(OBJS) -o $@ $(LDFLAGS)
 
 libs:
 	@cd $(EXTLIBS); make

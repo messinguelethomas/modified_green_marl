@@ -10,16 +10,22 @@ void communities(gm_graph& G, node_t* G_Comm)
 
     finished = true ;
 
-    #pragma omp parallel for
-    for (node_t x = 0; x < G.num_nodes(); x ++) 
+    #pragma omp parallel
+    #pragma omp single
+    #pragma omp taskloop
+    for (int tsk_x = 0; tsk_x < G.num_task(); tsk_x++)
+    for (node_t x = G.task_tab[tsk_x].start; x < G.task_tab[tsk_x].end; x ++) 
         G_Comm[x] = x ;
 
     do
     {
         finished = true ;
 
-        #pragma omp parallel for schedule(dynamic,128)
-        for (node_t x0 = 0; x0 < G.num_nodes(); x0 ++) 
+        #pragma omp parallel
+        #pragma omp single
+        #pragma omp taskloop grainsize(1)
+        for (int tsk_x0 = 0; tsk_x0 < G.num_task(); tsk_x0++)
+        for (node_t x0 = G.task_tab[tsk_x0].start; x0 < G.task_tab[tsk_x0].end; x0 ++) 
         {
             gm_map_medium<node_t, int32_t> T(gm_rt_get_num_threads(),  0);
 

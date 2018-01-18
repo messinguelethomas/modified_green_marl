@@ -15,8 +15,11 @@ void sssp_path(gm_graph& G, int32_t* G_dist,
 
     fin = false ;
 
-    #pragma omp parallel for
-    for (node_t t0 = 0; t0 < G.num_nodes(); t0 ++) 
+    #pragma omp parallel
+    #pragma omp single
+    #pragma omp taskloop
+    for (int tsk_t0 = 0; tsk_t0 < G.num_task(); tsk_t0++)
+    for (node_t t0 = G.task_tab[tsk_t0].start; t0 < G.task_tab[tsk_t0].end; t0 ++) 
     {
         G_dist[t0] = (t0 == root)?0:INT_MAX ;
         G_updated[t0] = (t0 == root)?true:false ;
@@ -31,8 +34,11 @@ void sssp_path(gm_graph& G, int32_t* G_dist,
         fin = true ;
         __E9 = false ;
 
-        #pragma omp parallel for schedule(dynamic,128)
-        for (node_t n = 0; n < G.num_nodes(); n ++) 
+        #pragma omp parallel
+        #pragma omp single
+        #pragma omp taskloop grainsize(1)
+        for (int tsk_n = 0; tsk_n < G.num_task(); tsk_n++)
+        for (node_t n = G.task_tab[tsk_n].start; n < G.task_tab[tsk_n].end; n ++) 
         {
             if (G_updated[n])
             {
@@ -65,8 +71,10 @@ void sssp_path(gm_graph& G, int32_t* G_dist,
 
             __E9_prv = false ;
 
-            #pragma omp for nowait
-            for (node_t t5 = 0; t5 < G.num_nodes(); t5 ++) 
+            #pragma omp single
+            #pragma omp taskloop
+            for (int tsk_t5 = 0; tsk_t5 < G.num_task(); tsk_t5++)
+            for (node_t t5 = G.task_tab[tsk_t5].start; t5 < G.task_tab[tsk_t5].end; t5 ++) 
             {
                 G_dist[t5] = G_dist_nxt[t5] ;
                 G_updated[t5] = G_updated_nxt[t5] ;

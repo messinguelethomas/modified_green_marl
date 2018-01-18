@@ -40,4 +40,6 @@ public:
 int main(int argc, char** argv) {
     my_main M;
     M.main(argc, argv);
+/*	gm_graph G = new();
+	load_binary_2(argv[1],argv[2], &G);*/
 }

@@ -15,14 +15,19 @@ int32_t v_cover(gm_graph& G, bool* G_select)
     remain = (int32_t)(G.num_edges() * 2) ;
     __S4 = 0 ;
 
-    #pragma omp parallel for
-    for (node_t t0 = 0; t0 < G.num_nodes(); t0 ++) 
+    #pragma omp parallel
+    #pragma omp single
+    #pragma omp taskloop
+    for (int tsk_t0 = 0; tsk_t0 < G.num_task(); tsk_t0++)
+    for (node_t t0 = G.task_tab[tsk_t0].start; t0 < G.task_tab[tsk_t0].end; t0 ++) 
     {
         G_Deg[t0] = (G.begin[t0+1] - G.begin[t0]) + (G.r_begin[t0+1] - G.r_begin[t0]) ;
         G_Covered[t0] = false ;
     }
 
-    #pragma omp parallel for
+    #pragma omp parallel
+    #pragma omp single
+    #pragma omp taskloop
     for (edge_t t2 = 0; t2 < G.num_edges(); t2 ++) 
         G_select[t2] = false ;
 
@@ -36,15 +41,17 @@ int32_t v_cover(gm_graph& G, bool* G_select)
         max_val = 0 ;
         #pragma omp parallel
         {
-            edge_t e_prv;
             node_t to_prv;
-            node_t from_prv;
+            edge_t e_prv;
             int32_t max_val_prv = 0 ;
+            node_t from_prv;
 
             max_val_prv = max_val ;
 
-            #pragma omp for nowait schedule(dynamic,128)
-            for (node_t s = 0; s < G.num_nodes(); s ++) 
+            #pragma omp single
+            #pragma omp taskloop grainsize(1)
+            for (int tsk_s = 0; tsk_s < G.num_task(); tsk_s++)
+            for (node_t s = G.task_tab[tsk_s].start; s < G.task_tab[tsk_s].end; s ++) 
             {
                 for (edge_t t_idx = G.begin[s];t_idx < G.begin[s+1] ; t_idx ++) 
                 {
@@ -91,8 +98,10 @@ int32_t v_cover(gm_graph& G, bool* G_select)
 
         __S4_prv = 0 ;
 
-        #pragma omp for nowait
-        for (node_t t3 = 0; t3 < G.num_nodes(); t3 ++) 
+        #pragma omp single
+        #pragma omp taskloop
+        for (int tsk_t3 = 0; tsk_t3 < G.num_task(); tsk_t3++)
+        for (node_t t3 = G.task_tab[tsk_t3].start; t3 < G.task_tab[tsk_t3].end; t3 ++) 
             if (G_Covered[t3])
             {
                 __S4_prv = __S4_prv + 1 ;

@@ -37,10 +37,10 @@ endif
 #  (32,32), (32,64),(64,64)
 #-----------------------------------------
 ifndef NODE_SIZE
-  NODE_SIZE=32
+  NODE_SIZE=64
 endif
 ifndef EDGE_SIZE
-  EDGE_SIZE=32
+  EDGE_SIZE=64
 endif
 
 ifeq (${EDGE_SIZE},64)

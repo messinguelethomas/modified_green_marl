@@ -239,3 +239,355 @@ gm_graph* create_RMAT_graph(node_t N, edge_t M, long rseed, double a, double b, 
 
     return g;
 }
+
+task_info_t generate_task_index(unsigned long long degree_sum, int nb_node, int nb_thread, int chunk, graph_first_format* Nodes)
+{
+	unsigned long long max_degree_sum_task, degree_sum_temp, i, task_id;
+	int nb_task = chunk*nb_thread;
+	task_info_t Task;
+
+	max_degree_sum_task = degree_sum / nb_task;
+	 Task.task_info = (task_type*)malloc(sizeof(task_type)*nb_task);
+
+	i = 0; task_id =0;
+	while((i < nb_node)&&(task_id < nb_task))
+	{
+		Task.task_info[task_id].start = i;
+		degree_sum_temp = 0;
+		while((degree_sum_temp < max_degree_sum_task)&&(i < nb_node))
+		{
+			degree_sum_temp = degree_sum_temp + (unsigned long long) Nodes[i].from_size;
+			i++;
+		}
+		if(i >= (nb_node - 1))
+			Task.task_info[task_id].end = nb_node;
+		else
+			Task.task_info[task_id].end = i+1;
+		Task.task_info[task_id].tid = task_id;
+		Task.task_info[task_id].degree_sum = degree_sum_temp;
+		//printf("task %d begin at %d end at %d degree_sum = %lld\n",task_id, Task.task_info[task_id].start, Task.task_info[task_id].end, Task.task_info[task_id].degree_sum);
+		task_id++;
+		i++;
+		Task.nb_task = task_id;
+	}
+
+	while(task_id < nb_task)
+	{
+		Task.task_info[task_id].start = nb_node;
+		Task.task_info[task_id].end = nb_node;
+		Task.task_info[task_id].tid = task_id;
+		Task.task_info[task_id].degree_sum = 0;
+		//printf("task %d begin at %d end at %d degree_sum = %lld\n",task_id, Task.task_info[task_id].start, Task.task_info[task_id].end, Task.task_info[task_id].degree_sum);
+		task_id++;
+	}
+		//printf("nb_task = %d\treal_nb_task = %d\tdegree_sum = %lld max_degree_sum_task = %lld\n",nb_task, Task.nb_task, degree_sum, max_degree_sum_task);
+
+	printf("degree_sum = %lld max_degree_sum_task = %lld\t",degree_sum, max_degree_sum_task);
+	printf("nb_task = %d \n",Task.nb_task);
+	return Task;
+
+}
+/***** Read graph from txt file *****/	
+
+gm_graph* load_graph_txt(char* filename, int N)
+{
+    FILE *fid;
+    int from_idx, to_idx, i,  temp_size, degree, j, M;
+
+	graph_first_format* Nodes;
+	Nodes = (graph_first_format*)malloc(N*sizeof(graph_first_format));
+    
+    	for (i = 0; i < N; i++)
+	{
+		Nodes[i].con_size = 0;
+		Nodes[i].from_size = 0;
+		Nodes[i].From_id = (int*) malloc(sizeof(int));
+        }	
+    
+    	fid = fopen(filename, "r");
+   	if (fid == NULL){printf("Error opening the file\n");}
+
+	while (!feof(fid))
+	{
+		if (fscanf(fid,"%d\t%d\n", &from_idx, &to_idx))
+		{
+			Nodes[from_idx].con_size++;
+			Nodes[to_idx].from_size++;
+			temp_size = Nodes[to_idx].from_size;
+			Nodes[to_idx].From_id = (int*) realloc(Nodes[to_idx].From_id, temp_size * sizeof(int));
+			Nodes[to_idx].From_id[temp_size - 1] = from_idx;
+			M++;
+		}
+	}
+    
+	gm_graph* G = new gm_graph();
+	G->prepare_external_creation(N, M);
+	G->begin[0] = 0;
+	for (i = 1; i <= N; i++) {
+		G->begin[i] = G->begin[i - 1] + Nodes[i-1].from_size;
+		degree = Nodes[i-1].con_size;
+		for(j = 0; j < degree; j++){
+			G->node_idx[G->begin[i-1] + j] = Nodes[i-1].From_id[j];  // set end node of this edge
+		}
+		free(Nodes[i-1].From_id);
+	}
+	free(Nodes);
+	return G;
+}
+
+
+gm_graph load_binary_2(char* binary_file, char* binary_task_info)
+{
+	gm_graph G;
+	int nb_task;
+	bool b = G.load_binary(binary_file);
+	if(!b){
+		printf("An error occures while reading %s\n", binary_file);
+		exit(-1);
+	}
+
+	G.task_tab = load_task_info(binary_task_info, &nb_task);
+	G._numTask = nb_task;
+	//printf("nb_task = %d\n",G._numTask);
+
+	return G;
+}
+
+gm_graph* load_graph_set_degree_schedule(char* filename, int N, int nb_thread, int chunk)
+{
+    FILE *fid;
+    int from_idx, to_idx, i,  temp_size, degree, j, M = 0;
+
+	graph_first_format* Nodes;
+	Nodes = (graph_first_format*)malloc(N*sizeof(graph_first_format));
+    
+    	for (i = 0; i < N; i++)
+	{
+		Nodes[i].con_size = 0;
+		Nodes[i].from_size = 0;
+		Nodes[i].From_id = (int*) malloc(sizeof(int));
+        }	
+    
+    	fid = fopen(filename, "r");
+   	if (fid == NULL){printf("Error opening the file\n");}
+
+	while (!feof(fid))
+	{
+		if (fscanf(fid,"%d\t%d\n", &from_idx, &to_idx))
+		{
+			Nodes[from_idx].con_size++;
+			Nodes[to_idx].from_size++;
+			temp_size = Nodes[to_idx].from_size;
+			Nodes[to_idx].From_id = (int*) realloc(Nodes[to_idx].From_id, temp_size * sizeof(int));
+			Nodes[to_idx].From_id[temp_size - 1] = from_idx;
+			M++;
+		}
+	}
+    
+    	task_info_t task_info = generate_task_index(M, N, nb_thread, chunk, Nodes);
+	gm_graph* G = new gm_graph();
+	G->prepare_external_creation(N, M);
+	G->task_tab = task_info.task_info;
+	G->_numTask = task_info.nb_task;	
+	G->begin[0] = 0;
+	for (i = 1; i <= N; i++) {
+		G->begin[i] = G->begin[i - 1] + Nodes[i-1].from_size;
+		degree = Nodes[i-1].con_size;
+		for(j = 0; j < degree; j++){
+			G->node_idx[G->begin[i-1] + j] = Nodes[i-1].From_id[j];  // set end node of this edge
+		}
+		free(Nodes[i-1].From_id);
+	}
+	free(Nodes);
+	return G;
+}
+
+ task_type* load_task_info(char* file_task_info, int* nb_task) 
+{
+	FILE* f;	
+	task_type* task_info;
+	task_type ts_inf;
+	f = fopen(file_task_info, "rb");
+	if(f == NULL){
+		fprintf (stderr,"Cannot open %s for writting",file_task_info);
+		printf ("Cannot open %s for writting",file_task_info);
+		exit(-1);
+	}
+	fread(nb_task,sizeof(int),1,f);
+	task_info = (task_type*)malloc((*nb_task) * sizeof(task_type));
+	int i;
+	for(i = 0; i < *nb_task; i++){
+		fread(&ts_inf, sizeof(task_type),1,f);
+		task_info[i].tid   = ts_inf.tid;
+		task_info[i].start = ts_inf.start;
+		task_info[i].end   = ts_inf.end;
+		task_info[i].degree_sum   = ts_inf.degree_sum;
+	}
+	fclose(f);
+	return task_info;
+}
+
+/***** Read graph from gml file *****/	
+gm_graph* load_graph_gml(char* nom_fich)
+{
+	int max_char_read = 100, len_string = 100, min_node;
+	char ch1[20], ch2[20], ch[max_char_read], *tmp = {"test"};
+	FILE* graph_file = NULL;
+	char* reslt[len_string],*sep={" "};
+	int i_node = 0, i_edge = 0, orig, extr, id;
+	int node;
+	int directed = is_directed_gml(nom_fich);
+	int nb_node = node_count_gml(nom_fich, &min_node);
+
+	graph_file = fopen(nom_fich, "r");
+	gm_graph* G = new gm_graph();
+	
+	if(graph_file!= NULL)
+	{
+		while(tmp)
+		{
+			tmp = fgets(ch, max_char_read, graph_file);
+
+			if(strcmp(trim_space(ch),"node")==0)
+			{	
+				id = -1;
+				while(strcmp(trim_space(ch),"]")!=0)
+				{
+					tmp = fgets(ch, max_char_read, graph_file);
+					str_split(ch,sep,reslt);
+					if(strcmp(trim_space(reslt[0]),"id")==0)
+					{
+						G->add_node();//Assuming that nodes are consecutive in gml file
+						i_node++;
+					}
+				}
+					
+			}
+
+			if(strcmp(trim_space(ch),"edge")==0)
+			{
+				while(strcmp(trim_space(ch),"]")!=0)
+				{
+					tmp = fgets(ch, max_char_read, graph_file);
+					str_split(ch,sep,reslt);
+					if(strcmp(trim_space(reslt[0]),"source")==0)
+					{
+						orig = atoi(reslt[1]) - min_node;
+					}
+					if(strcmp(trim_space(reslt[0]),"target")==0)
+					{
+						extr = atoi(reslt[1]) - min_node;
+						G->add_edge(orig,extr);
+						if(!directed)					
+							G->add_edge(extr, orig);
+					}
+				}
+			}
+			
+		}
+		fclose(graph_file);
+	}
+	G->freeze();
+	return G;
+}
+
+int node_count_gml(char* nom_fich, int*min_node_)
+{
+	int max_char_read = 100, len_string = 100;
+	char ch[max_char_read], *tmp = {"test"};
+	FILE* graph_file = NULL;
+	char* reslt[len_string],*sep={" "};
+
+	graph_file = fopen(nom_fich, "r");
+	int nb_node = 0;
+	int min_node = INT_MAX;
+
+	if(graph_file!= NULL)
+	{
+		while(tmp)
+		{
+			tmp = fgets(ch, max_char_read, graph_file);
+			str_split(ch,sep,reslt);
+			if(strcmp(trim_space(ch),"node")==0)
+			{
+				nb_node++;
+				while(strcmp(trim_space(ch),"]")!=0)
+				{
+					tmp = fgets(ch, max_char_read, graph_file);
+					str_split(ch,sep,reslt);
+					if(strcmp(trim_space(reslt[0]),"id")==0)
+					{
+						if(atoi(reslt[1])<min_node)
+							min_node = atoi(reslt[1]);
+					}
+				}
+			}
+
+		}
+		fclose(graph_file);
+	}
+	*min_node_ = min_node;
+	return nb_node;
+
+}
+char *trim_space(char *str)
+{
+  char *end;
+
+  // Trim leading space
+  while(isspace(*str)) str++;
+
+  if(*str == 0)  // All spaces?
+    return str;
+
+  // Trim trailing space
+  end = str + strlen(str) - 1;
+  while(end > str && isspace(*end)) end--;
+
+  // Write new null terminator
+  *(end+1) = 0;
+
+  return str;
+}
+char** str_split(char* str, char* car, char*reslt[])
+{
+	char *str1, *str2, *token, *subtoken;
+	char *saveptr1, *saveptr2;
+	int j;
+
+	for (j = 1, str1 = str; ; j++, str1 = NULL) {
+	       token = strtok_r(str1, car, &saveptr1);
+	       if (token == NULL)
+		   break;
+		reslt[j-1] = token;
+	  }
+	
+	return reslt;
+}
+int is_directed_gml(char* nom_fich)
+{
+	int max_char_read = 100, len_string = 100;
+	char ch[max_char_read], *tmp = {"test"};
+	FILE* graph_file = NULL;
+	char* reslt[len_string],*sep={" "};
+	
+	graph_file = fopen(nom_fich, "r");
+	int directed = 0, trouve = 0;
+
+	if(graph_file!= NULL)
+	{
+		while(tmp && !trouve)
+		{
+			tmp = fgets(ch, max_char_read, graph_file);
+			str_split(ch,sep,reslt);
+			if(strcmp(trim_space(reslt[0]),"directed")==0)
+			{
+				directed = atoi(reslt[1]);
+				trouve = 1;
+			}
+		}
+		fclose(graph_file);
+	}
+	return directed;
+}
+

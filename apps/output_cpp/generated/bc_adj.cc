@@ -70,15 +70,22 @@ void comp_BC(gm_graph& G, float* G_BC)
     float* G_delta = gm_rt_allocate_float(G.num_nodes(),gm_rt_thread_id());
 
 
-    #pragma omp parallel for
-    for (node_t t0 = 0; t0 < G.num_nodes(); t0 ++) 
+    #pragma omp parallel
+    #pragma omp single
+    #pragma omp taskloop
+    for (int tsk_t0 = 0; tsk_t0 < G.num_task(); tsk_t0++)
+    for (node_t t0 = G.task_tab[tsk_t0].start; t0 < G.task_tab[tsk_t0].end; t0 ++) 
         G_BC[t0] = (float)0 ;
 
-    for (node_t s = 0; s < G.num_nodes(); s ++) 
+    for (int tsk_s = 0; tsk_s < G.num_task(); tsk_s++)
+    for (node_t s = G.task_tab[tsk_s].start; s < G.task_tab[tsk_s].end; s ++) 
     {
 
-        #pragma omp parallel for
-        for (node_t t1 = 0; t1 < G.num_nodes(); t1 ++) 
+        #pragma omp parallel
+        #pragma omp single
+        #pragma omp taskloop
+        for (int tsk_t1 = 0; tsk_t1 < G.num_task(); tsk_t1++)
+        for (node_t t1 = G.task_tab[tsk_t1].start; t1 < G.task_tab[tsk_t1].end; t1 ++) 
             G_sigma[t1] = (float)0 ;
 
         G_sigma[s] = (float)1 ;

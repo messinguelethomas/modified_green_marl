@@ -23,8 +23,10 @@ float avg_teen_cnt(gm_graph& G, int32_t* G_age,
         _cnt3_prv = 0 ;
         __S2_prv = 0 ;
 
-        #pragma omp for nowait schedule(dynamic,128)
-        for (node_t n = 0; n < G.num_nodes(); n ++) 
+        #pragma omp single
+        #pragma omp taskloop grainsize(1)
+        for (int tsk_n = 0; tsk_n < G.num_task(); tsk_n++)
+        for (node_t n = G.task_tab[tsk_n].start; n < G.task_tab[tsk_n].end; n ++) 
         {
             int32_t __S1 = 0 ;
 

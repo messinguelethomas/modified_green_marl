@@ -6,17 +6,17 @@ class comp_BC_bfs : public gm_bfs_template
     <short, true, false, false, true>
 {
 public:
-    comp_BC_bfs(gm_graph& _G, node_t& _s, float*& _G_sigma, 
-        float*& _G_delta, float*& _G_BC)
+    comp_BC_bfs(gm_graph& _G, float*& _G_sigma, float*& _G_delta, 
+        float*& _G_BC, node_t& _s)
     : gm_bfs_template<short, true, false, false, true>(_G),
-    G(_G), s(_s), G_sigma(_G_sigma), G_delta(_G_delta), G_BC(_G_BC){}
+    G(_G), G_sigma(_G_sigma), G_delta(_G_delta), G_BC(_G_BC), s(_s){}
 
 private:  // list of varaibles
     gm_graph& G;
-    node_t& s;
     float*& G_sigma;
     float*& G_delta;
     float*& G_BC;
+    node_t& s;
 
 protected:
     virtual void visit_fw(node_t v) 
@@ -66,8 +66,11 @@ void comp_BC(gm_graph& G, float* G_BC,
     float* G_delta = gm_rt_allocate_float(G.num_nodes(),gm_rt_thread_id());
 
 
-    #pragma omp parallel for
-    for (node_t t0 = 0; t0 < G.num_nodes(); t0 ++) 
+    #pragma omp parallel
+    #pragma omp single
+    #pragma omp taskloop
+    for (int tsk_t0 = 0; tsk_t0 < G.num_task(); tsk_t0++)
+    for (node_t t0 = G.task_tab[tsk_t0].start; t0 < G.task_tab[tsk_t0].end; t0 ++) 
         G_BC[t0] = (float)0 ;
 
     gm_node_seq::seq_iter s_I = Seeds.prepare_seq_iteration();
@@ -75,13 +78,16 @@ void comp_BC(gm_graph& G, float* G_BC,
     {
         node_t s = s_I.get_next();
 
-        #pragma omp parallel for
-        for (node_t t1 = 0; t1 < G.num_nodes(); t1 ++) 
+        #pragma omp parallel
+        #pragma omp single
+        #pragma omp taskloop
+        for (int tsk_t1 = 0; tsk_t1 < G.num_task(); tsk_t1++)
+        for (node_t t1 = G.task_tab[tsk_t1].start; t1 < G.task_tab[tsk_t1].end; t1 ++) 
             G_sigma[t1] = (float)0 ;
 
         G_sigma[s] = (float)1 ;
 
-        comp_BC_bfs _BFS(G, s, G_sigma, G_delta, G_BC);
+        comp_BC_bfs _BFS(G, G_sigma, G_delta, G_BC, s);
         _BFS.prepare(s, gm_rt_get_num_threads());
         _BFS.do_bfs_forward();
         _BFS.do_bfs_reverse();

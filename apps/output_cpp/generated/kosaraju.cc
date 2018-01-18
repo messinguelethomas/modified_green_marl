@@ -76,13 +76,17 @@ int32_t kosaraju(gm_graph& G, int32_t* G_mem)
 
     compId = 0 ;
 
-    #pragma omp parallel for
-    for (node_t t0 = 0; t0 < G.num_nodes(); t0 ++) 
+    #pragma omp parallel
+    #pragma omp single
+    #pragma omp taskloop
+    for (int tsk_t0 = 0; tsk_t0 < G.num_task(); tsk_t0++)
+    for (node_t t0 = G.task_tab[tsk_t0].start; t0 < G.task_tab[tsk_t0].end; t0 ++) 
     {
         G_mem[t0] =  -1 ;
         G_Checked[t0] = false ;
     }
-    for (node_t t = 0; t < G.num_nodes(); t ++) 
+    for (int tsk_t = 0; tsk_t < G.num_task(); tsk_t++)
+    for (node_t t = G.task_tab[tsk_t].start; t < G.task_tab[tsk_t].end; t ++) 
     {
         if ( !G_Checked[t])
         {

@@ -17,16 +17,21 @@ void random_degree_node_sampling(gm_graph& G, int32_t N,
 
         __S1_prv = 0 ;
 
-        #pragma omp for nowait
-        for (node_t n = 0; n < G.num_nodes(); n ++) 
+        #pragma omp single
+        #pragma omp taskloop
+        for (int tsk_n = 0; tsk_n < G.num_task(); tsk_n++)
+        for (node_t n = G.task_tab[tsk_n].start; n < G.task_tab[tsk_n].end; n ++) 
         {
             __S1_prv = __S1_prv + (G.begin[n+1] - G.begin[n]) ;
         }
         ATOMIC_ADD<int32_t>(&__S1, __S1_prv);
     }
 
-    #pragma omp parallel for
-    for (node_t t0 = 0; t0 < G.num_nodes(); t0 ++) 
+    #pragma omp parallel
+    #pragma omp single
+    #pragma omp taskloop
+    for (int tsk_t0 = 0; tsk_t0 < G.num_task(); tsk_t0++)
+    for (node_t t0 = G.task_tab[tsk_t0].start; t0 < G.task_tab[tsk_t0].end; t0 ++) 
     {
         double dice = 0.0 ;
 

@@ -129,7 +129,7 @@ bool gm_graph::load_binary_internal(FILE*f, uint32_t magic_word, bool need_semi_
         goto error_return;
     }
 
-    printf("N = %ld, M = %ld\n", (long)N,(long)M);
+    /*printf("N = %ld, M = %ld\n", (long)N,(long)M);*/
     allocate_memory_for_frozen_graph(N, M);
 
 #if GM_GRAPH_NUMA_OPT 

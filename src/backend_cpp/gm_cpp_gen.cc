@@ -1141,18 +1141,44 @@ void gm_cpp_gen::generate_expr_builtin(ast_expr* ee) {
         get_lib()->generate_expr_builtin((ast_expr_builtin*) e, Body);
     }
 }
-
+/*
 void gm_cpp_gen::prepare_parallel_for(bool need_dynamic) {
-    if (is_under_parallel_sentblock()) 
+    if (is_under_parallel_sentblock()){ 
         Body.push("#pragma omp for nowait"); // already under parallel region.
-    else
+    }
+    else{
         Body.push("#pragma omp parallel for");
+    }
 
     if (need_dynamic) {
-        Body.push(" schedule(dynamic,128)");
+       // Body.push(" schedule(dynamic,128)");
+        Body.push(" schedule(dynamic,1)");
 
     }
 
     Body.NL();
 }
+// */
+void gm_cpp_gen::prepare_parallel_for(bool need_dynamic) {
+    if (is_under_parallel_sentblock()){ // already under parallel region,
+       // Body.push("#pragma omp for nowait");  //former code
+        Body.push("#pragma omp single");
+        Body.push("\n#pragma omp taskloop");
+#pragma omp parallel
+    }
+    else{
+        //Body.push("#pragma omp parallel for");
+        Body.push("#pragma omp parallel");
+        Body.push("\n#pragma omp single");
+        Body.push("\n#pragma omp taskloop");
+    }
 
+    if (need_dynamic) {
+       // Body.push(" schedule(dynamic,128)");
+        //Body.push(" schedule(dynamic,1)");
+        Body.push(" grainsize(1)");
+
+    }
+
+    Body.NL();
+}//*/

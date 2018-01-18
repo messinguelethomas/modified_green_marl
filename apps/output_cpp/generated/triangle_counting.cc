@@ -15,8 +15,10 @@ int64_t triangle_counting(gm_graph& G)
 
         T_prv = 0 ;
 
-        #pragma omp for nowait schedule(dynamic,128)
-        for (node_t v = 0; v < G.num_nodes(); v ++) 
+        #pragma omp single
+        #pragma omp taskloop grainsize(1)
+        for (int tsk_v = 0; tsk_v < G.num_task(); tsk_v++)
+        for (node_t v = G.task_tab[tsk_v].start; v < G.task_tab[tsk_v].end; v ++) 
             for (edge_t u_idx = G.begin[v];u_idx < G.begin[v+1] ; u_idx ++) 
             {
                 node_t u = G.node_idx [u_idx];

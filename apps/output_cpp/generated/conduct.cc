@@ -21,8 +21,10 @@ float conduct(gm_graph& G, int32_t* G_member,
 
         __S2_prv = 0 ;
 
-        #pragma omp for nowait
-        for (node_t u = 0; u < G.num_nodes(); u ++) 
+        #pragma omp single
+        #pragma omp taskloop
+        for (int tsk_u = 0; tsk_u < G.num_task(); tsk_u++)
+        for (node_t u = G.task_tab[tsk_u].start; u < G.task_tab[tsk_u].end; u ++) 
             if ((G_member[u] == num))
             {
                 __S2_prv = __S2_prv + (G.begin[u+1] - G.begin[u]) ;
@@ -36,8 +38,10 @@ float conduct(gm_graph& G, int32_t* G_member,
 
         __S3_prv = 0 ;
 
-        #pragma omp for nowait
-        for (node_t u0 = 0; u0 < G.num_nodes(); u0 ++) 
+        #pragma omp single
+        #pragma omp taskloop
+        for (int tsk_u0 = 0; tsk_u0 < G.num_task(); tsk_u0++)
+        for (node_t u0 = G.task_tab[tsk_u0].start; u0 < G.task_tab[tsk_u0].end; u0 ++) 
             if ((G_member[u0] != num))
             {
                 __S3_prv = __S3_prv + (G.begin[u0+1] - G.begin[u0]) ;
@@ -51,8 +55,10 @@ float conduct(gm_graph& G, int32_t* G_member,
 
         __S4_prv = 0 ;
 
-        #pragma omp for nowait schedule(dynamic,128)
-        for (node_t u1 = 0; u1 < G.num_nodes(); u1 ++) 
+        #pragma omp single
+        #pragma omp taskloop grainsize(1)
+        for (int tsk_u1 = 0; tsk_u1 < G.num_task(); tsk_u1++)
+        for (node_t u1 = G.task_tab[tsk_u1].start; u1 < G.task_tab[tsk_u1].end; u1 ++) 
             if ((G_member[u1] == num))
             {
                 for (edge_t j_idx = G.begin[u1];j_idx < G.begin[u1+1] ; j_idx ++) 

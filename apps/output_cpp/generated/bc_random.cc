@@ -68,8 +68,11 @@ void bc_random(gm_graph& G, float* G_BC,
 
     k = 0 ;
 
-    #pragma omp parallel for
-    for (node_t t0 = 0; t0 < G.num_nodes(); t0 ++) 
+    #pragma omp parallel
+    #pragma omp single
+    #pragma omp taskloop
+    for (int tsk_t0 = 0; tsk_t0 < G.num_task(); tsk_t0++)
+    for (node_t t0 = G.task_tab[tsk_t0].start; t0 < G.task_tab[tsk_t0].end; t0 ++) 
         G_BC[t0] = (float)0 ;
 
     while (k < K)
@@ -78,8 +81,11 @@ void bc_random(gm_graph& G, float* G_BC,
 
         s = G.pick_random_node() ;
 
-        #pragma omp parallel for
-        for (node_t t1 = 0; t1 < G.num_nodes(); t1 ++) 
+        #pragma omp parallel
+        #pragma omp single
+        #pragma omp taskloop
+        for (int tsk_t1 = 0; tsk_t1 < G.num_task(); tsk_t1++)
+        for (node_t t1 = G.task_tab[tsk_t1].start; t1 < G.task_tab[tsk_t1].end; t1 ++) 
             G_sigma[t1] = (float)0 ;
 
         G_sigma[s] = (float)1 ;

@@ -175,6 +175,7 @@ void gm_cpplib::generate_foreach_header(ast_foreach* fe, gm_code_writer& Body) {
     //ast_id* source = fe->get_source();
     ast_id* iter = fe->get_iterator();
     int type = fe->get_iter_type();
+    char str_for_task[200];
 
     if (gm_is_all_graph_iteration(type)) {
         assert(!fe->is_source_field());
@@ -186,8 +187,13 @@ void gm_cpplib::generate_foreach_header(ast_foreach* fe, gm_code_writer& Body) {
             graph_name = source->get_genname();
         }
         char* it_name = iter->get_genname();
-        sprintf(str_buf, "for (%s %s = 0; %s < %s.%s(); %s ++) ", get_type_string(iter->getTypeSummary()), it_name, it_name, graph_name,
-                gm_is_node_iteration(type) ? NUM_NODES : NUM_EDGES, it_name);
+	if(gm_is_node_iteration(type))
+	{
+        	sprintf(str_for_task, "for (int tsk_%s = 0; tsk_%s < %s.num_task(); tsk_%s++)\n",it_name,it_name,graph_name,it_name);
+        	sprintf(str_buf, "%sfor (%s %s = %s.task_tab[tsk_%s].start; %s < %s.task_tab[tsk_%s].end; %s ++) ",str_for_task, get_type_string(iter->getTypeSummary()), it_name, graph_name,it_name, it_name, graph_name, it_name, it_name);
+	}
+	else
+        	sprintf(str_buf, "for (%s %s = 0; %s < %s.%s(); %s ++) ", get_type_string(iter->getTypeSummary()), it_name, it_name, graph_name, gm_is_node_iteration(type) ? NUM_NODES : NUM_EDGES, it_name);
 
         Body.pushln(str_buf);
     } else if (gm_is_common_nbr_iteration(type)) {

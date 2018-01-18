@@ -17,8 +17,11 @@ void pagerank(gm_graph& G, double e,
     cnt = 0 ;
     N = (double)(G.num_nodes()) ;
 
-    #pragma omp parallel for
-    for (node_t t0 = 0; t0 < G.num_nodes(); t0 ++) 
+    #pragma omp parallel
+    #pragma omp single
+    #pragma omp taskloop
+    for (int tsk_t0 = 0; tsk_t0 < G.num_task(); tsk_t0++)
+    for (node_t t0 = G.task_tab[tsk_t0].start; t0 < G.task_tab[tsk_t0].end; t0 ++) 
         G_pg_rank[t0] = 1 / N ;
 
     do
@@ -30,8 +33,10 @@ void pagerank(gm_graph& G, double e,
 
             diff_prv = ((float)(0.000000)) ;
 
-            #pragma omp for nowait schedule(dynamic,128)
-            for (node_t t = 0; t < G.num_nodes(); t ++) 
+            #pragma omp single
+            #pragma omp taskloop grainsize(1)
+            for (int tsk_t = 0; tsk_t < G.num_task(); tsk_t++)
+            for (node_t t = G.task_tab[tsk_t].start; t < G.task_tab[tsk_t].end; t ++) 
             {
                 double val = 0.0 ;
                 double __S1 = 0.0 ;
@@ -49,8 +54,11 @@ void pagerank(gm_graph& G, double e,
             ATOMIC_ADD<double>(&diff, diff_prv);
         }
 
-        #pragma omp parallel for
-        for (node_t i3 = 0; i3 < G.num_nodes(); i3 ++) 
+        #pragma omp parallel
+        #pragma omp single
+        #pragma omp taskloop
+        for (int tsk_i3 = 0; tsk_i3 < G.num_task(); tsk_i3++)
+        for (node_t i3 = G.task_tab[tsk_i3].start; i3 < G.task_tab[tsk_i3].end; i3 ++) 
             G_pg_rank[i3] = G_pg_rank_nxt[i3] ;
 
         cnt = cnt + 1 ;

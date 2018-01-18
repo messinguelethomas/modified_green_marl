@@ -114,10 +114,16 @@ enum GM_ERRORS_AND_WARNINGS
 // END_MARKER
 };
 
-extern void gm_type_error(int errnumber, ast_id* id, const char* str1 = "", const char* str2 = "");
+extern void test_undefined_reference();
+extern void gm_type_error(int errnumber, ast_id* id, char const* str1 = "", char const* str2 = "");
+extern void gm_type_error(int errnumber, ast_id* id, ast_id* id2);
+extern void gm_type_error(int errnumber, int l, int c, char const* str1 = "", char const* str2 = "", char const* str3 = "");
+extern void gm_type_error(int errnumber, char const* str);
+
+/*extern void gm_type_error(int errnumber, ast_id* id, const char* str1 = "", const char* str2 = "");
 extern void gm_type_error(int errnumber, ast_id* id, ast_id* id2);
 extern void gm_type_error(int errnumber, int l, int c, const char* str1 = "", const char* str2 = "", const char* str3 = "");
-extern void gm_type_error(int errnumber, const char* str);
+extern void gm_type_error(int errnumber, const char* str);*/
 
 //extern void gm_conf_error(int errnumber, gm_symtab_entry* target, ast_id* evidence1);
 extern void gm_conf_error(int errnumber, gm_symtab_entry* target, ast_id* ev1, ast_id* ev2, bool is_warning);
